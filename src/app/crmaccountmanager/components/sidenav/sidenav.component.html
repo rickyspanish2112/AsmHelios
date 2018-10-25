@@ -1,0 +1,33 @@
+<mat-drawer-container class="app-sidenav-container" autosize>
+  <mat-drawer #drawer class="app-sidenav mat-elevation-z10"
+  [opened]="!isScreenSmall()" [mode]="isScreenSmall() ? 'over' : 'side'">
+    <!-- <p>Auto-resizing sidenav</p> -->
+    <mat-toolbar color="primary">
+      Account Nodes
+    </mat-toolbar>
+
+    <mat-list role="list">
+        <mat-list-item role="listitem">Account</mat-list-item>
+        <mat-list-item role="listitem">Addresses</mat-list-item>
+        <mat-list-item role="listitem">Contacts</mat-list-item>
+        <mat-list-item role="listitem">Account Notes</mat-list-item>
+        <mat-list-item role="listitem">Products</mat-list-item>
+        <mat-list-item role="listitem">NCTS</mat-list-item>
+        <mat-list-item role="listitem">Job Costing</mat-list-item>
+      </mat-list>
+
+    <p *ngIf="showFiller">Lorem, ipsum dolor sit amet consectetur.</p>
+    <button (click)="showFiller = !showFiller" mat-raised-button>
+      Toggle extra text
+    </button>
+  </mat-drawer>
+
+  <div class="app-sidenav-content">
+    <app-toolbar (toggleSidenav)="drawer.toggle()"></app-toolbar>
+
+    <div class="wrapper">
+        <router-outlet></router-outlet>
+    </div>
+  </div>
+
+</mat-drawer-container>
