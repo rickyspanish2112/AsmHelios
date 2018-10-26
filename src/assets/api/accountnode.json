@@ -1,0 +1,39 @@
+[
+  {
+    "id": 1,
+    "node": "Account",
+    "avatar":"folder"
+  },
+  {
+    "id": 2,
+    "node": "Addresses",
+    "avatar":"meeting_room"
+
+  },
+  {
+    "id": 5,
+    "node": "Contacts",
+    "avatar":"group"
+  },
+  {
+    "id": 8,
+    "node": "Account Notes",
+    "avatar":"note"
+  },
+  {
+    "id": 1,
+    "node": "Products",
+    "avatar":"shopping_basket"
+  },
+  {
+    "id": 2,
+    "node": "NCTS",
+    "avatar":"airport_shuttle"
+
+  },
+  {
+    "id": 5,
+    "node": "Job Costing",
+    "avatar":"account_balance"
+  }
+]
