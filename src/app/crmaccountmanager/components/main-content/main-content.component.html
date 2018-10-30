@@ -39,11 +39,13 @@
         </fieldset>
       </section>
     </div>
-    <div>
-      <mat-form-field appearance="standard">
-        <mat-label>{{account.country}}</mat-label>
-        <input id="textInput" placeholder="Enter Country" matInput>
-      </mat-form-field>
+    <div style="margin-top: 20px;">
+        <mat-form-field class="example-form-field">
+            <input matInput type="text" placeholder="Enter Country" [(ngModel)]="value">
+            <button mat-button *ngIf="value" matSuffix mat-icon-button aria-label="Clear" (click)="value=''" >
+              <mat-icon>close</mat-icon>
+            </button>
+          </mat-form-field>
     </div>
     <div>
       <mat-form-field appearance="standard">
@@ -107,7 +109,7 @@
                 Primay Address
               </mat-panel-title>
               <mat-panel-description>
-               {{panelOpenState ? 'Hide' : 'Display'}}Address
+               {{panelOpenState ? 'Hide' : 'Display'}} Address
               </mat-panel-description>
             </mat-expansion-panel-header>
             <div>
@@ -141,7 +143,7 @@
                 Primary Contact
               </mat-panel-title>
               <mat-panel-description>
-                  {{panelOpenState ? 'Hide' : 'Display'}}Contact
+                  {{panelOpenState ? 'Hide' : 'Display'}} Contact
               </mat-panel-description>
             </mat-expansion-panel-header>
             <p>I'm visible because I am open</p>

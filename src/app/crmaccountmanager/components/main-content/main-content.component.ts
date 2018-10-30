@@ -16,6 +16,7 @@ export class MainContentComponent implements OnInit {
   checked = false;
   indeterminate = false;
   panelOpenState = false;
+  value: string;
 
   constructor(private crmService: CrmaccountserviceService,
      private route: ActivatedRoute) {}
@@ -24,6 +25,7 @@ export class MainContentComponent implements OnInit {
     this.crmService.getAccount().subscribe(
       data => {
         this.account = data;
+        this.value = data.country;
       },
       error => (this.errorMessage = <any>error)
     );
