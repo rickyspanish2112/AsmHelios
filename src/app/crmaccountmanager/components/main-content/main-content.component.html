@@ -1,4 +1,10 @@
-<div class="flex-container" fxLayout.xs="column">
+<mat-card class="example-card" style="color:rgb(63, 95, 201);">
+    <mat-card-header>
+        <mat-card-title>Account Name: {{account.accountName}}</mat-card-title>
+    </mat-card-header>
+</mat-card>
+
+<div class="flex-container" fxLayout.xs="column" style="margin: 10px;">
   <div class="flex-item">
     <div>
       <mat-form-field appearance="standard">
@@ -135,7 +141,7 @@
                 Primary Contact
               </mat-panel-title>
               <mat-panel-description>
-                Currently I am {{panelOpenState ? 'open' : 'closed'}}
+                  {{panelOpenState ? 'Hide' : 'Display'}}Contact
               </mat-panel-description>
             </mat-expansion-panel-header>
             <p>I'm visible because I am open</p>
