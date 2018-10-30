@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { CrmaccountserviceService } from '../../services/crmaccountservice.service';
 import { Account } from '../../models/account';
+import { Accountnode } from '../../models/accountnode';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-main-content',
@@ -8,20 +10,22 @@ import { Account } from '../../models/account';
   styleUrls: ['./main-content.component.scss']
 })
 export class MainContentComponent implements OnInit {
-  account: Account = new Account();
-  firstNameAutofilled: boolean;
-  lastNameAutofilled: boolean;
 
-  constructor(private crmService: CrmaccountserviceService) {}
+  account: Account = new Account();
+  errorMessage: string;
+  checked = false;
+  indeterminate = false;
+  panelOpenState = false;
+
+  constructor(private crmService: CrmaccountserviceService,
+     private route: ActivatedRoute) {}
 
   ngOnInit() {
-    this.crmService.getAccount().subscribe(data => {
-      this.doGetAccount(data);
-    });
-  }
-
-  doGetAccount(data: Account) {
-    this.account = data;
-    console.log(this.account.shortCode + ' ' + this.account.accountName);
+    this.crmService.getAccount().subscribe(
+      data => {
+        this.account = data;
+      },
+      error => (this.errorMessage = <any>error)
+    );
   }
 }

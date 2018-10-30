@@ -31,18 +31,9 @@ export class SidenavComponent implements OnInit {
       },
       error => (this.errorMessage = <any>error)
     );
-
-    /*  this.crmService.getAccountNodes().subscribe(data => {
-      this.doGetAccountNodes(data);
-    }); */
   }
 
   isScreenSmall(): boolean {
     return this.mediaMatcher.matches;
   }
-
-  /* doGetAccountNodes(data: Accountnode[]) {
-    this.accountNodes = data;
-    console.log(this.accountNodes);
-  } */
 }

@@ -12,11 +12,13 @@ import { ToolbarComponent } from './components/toolbar/toolbar.component';
 import { MainContentComponent } from './components/main-content/main-content.component';
 import { SidenavComponent } from './components/sidenav/sidenav.component';
 import { CrmaccountserviceService } from './services/crmaccountservice.service';
+import { MAT_DATE_LOCALE } from '@angular/material/core';
 
 const routes: Routes = [
   {
     path: '', component: CrmaccountmanagerComponent,
     children: [
+      { path: ':id', component: MainContentComponent },
       { path: '', component: MainContentComponent }
     ]
   },
@@ -33,7 +35,8 @@ const routes: Routes = [
     RouterModule.forChild(routes)
   ],
   providers: [
-    CrmaccountserviceService
+    CrmaccountserviceService,
+    {provide: MAT_DATE_LOCALE, useValue: 'en-GB'}
   ],
   declarations: [CrmaccountmanagerComponent,
     ToolbarComponent,
