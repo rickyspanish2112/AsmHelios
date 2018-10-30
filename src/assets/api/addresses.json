@@ -1,51 +1,57 @@
 [
   {
     "Id": 1,
-    "title": "123456",
-    "street1": "GDN-0011",
-    "street2": "01784242200",
-    "street3": "01784255021",
+    "title": "Deliver Address",
+    "street1": "Street1",
+    "street2": "Street2",
+    "street3": "Street3",
     "county": "Import",
     "postCode": "Customer",
-	"country": "United Kingdom"
+    "country": "United Kingdom",
+    "isPrimary": false
   },
   {
     "Id": 2,
-    "title": "Garden Cart",
-    "street1": "GDN-0023",
-    "street2": "01784242200",
-    "street3": "01784255021",
+    "title": "Primary Address",
+    "street1": "Street1",
+    "street2": "Street2",
+    "street3": "Street3",
     "county": "Import",
     "postCode": "Customer",
-	"country": "United Kingdom"
+    "country": "United Kingdom",
+    "isPrimary": true
   },
   {
     "Id": 5,
-    "title": "Hammer",
-    "street1": "TBX-0048",
-    "street2": "01784242200",
-    "street3": "01784255021",
+    "title": "Collection Address",
+    "street1": "Street1",
+    "street2": "Street2",
+    "street3": "Street3",
     "county": "Import",
     "postCode": "Customer",
-	"country": "United Kingdom"
+    "country": "United Kingdom",
+    "isPrimary": false
   },
   {
     "Id": 8,
-    "title": "Saw",
-    "street1": "TBX-0022",
-    "street2": "01784242200",
-    "street3": "01784255021",
+    "title": "Invoice Address",
+    "street1": "Street1",
+    "street2": "Street2",
+    "street3": "Street3",
     "county": "Import",
     "postCode": "Customer",
-	"country": "United Kingdom"
+    "country": "United Kingdom",
+    "isPrimary": false
   },
   {
     "Id": 10,
-    "title": "Video Game Controller",
-    "street1": "GMG-0042",
-    "street2": "01784242200",
-    "street3": "01784255021",
+    "title": "Deliver Address",
+    "street1": "Street1",
+    "street2": "Street2",
+    "street3": "Street3",
     "county": "Import",
-    "postCode": "Customer"
+    "postCode": "Customer",
+    "country": "United Kingdom",
+    "isPrimary": false
   }
 ]

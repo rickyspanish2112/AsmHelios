@@ -1,7 +1,7 @@
 <div class="flex-container" fxLayout.xs="column">
   <div class="flex-item">
     <div>
-      <mat-form-field appearance="standard" >
+      <mat-form-field appearance="standard">
         <mat-label>{{account.shortCode}}</mat-label>
         <input id="textInput" placeholder="Enter ShortCode" matInput>
       </mat-form-field>
@@ -74,10 +74,10 @@
       <section class="example-section" style="width:300px;">
         <fieldset class="fieldset">
           <legend>Account Type:</legend>
-          <mat-checkbox class="example-margin" [(ngModel)]="checked">ExportAccount</mat-checkbox>
-          <mat-checkbox class="example-margin" [(ngModel)]="indeterminate">Import Account</mat-checkbox>
-          <mat-checkbox class="example-margin" [(ngModel)]="checked">ExportAccount</mat-checkbox>
-          <mat-checkbox class="example-margin" [(ngModel)]="indeterminate">Import Account</mat-checkbox>
+          <mat-checkbox class="example-margin" [(ngModel)]="checked">Customer</mat-checkbox>
+          <mat-checkbox class="example-margin" [(ngModel)]="indeterminate">Supplier</mat-checkbox>
+          <mat-checkbox class="example-margin" [(ngModel)]="checked">Prostpect</mat-checkbox>
+          <mat-checkbox class="example-margin" [(ngModel)]="indeterminate">Invoicee</mat-checkbox>
         </fieldset>
       </section>
       <div>
@@ -94,36 +94,53 @@
         </mat-form-field>
       </div>
       <div>
-          <mat-accordion>
-              <mat-expansion-panel>
-                <mat-expansion-panel-header>
-                  <mat-panel-title>
-                    Primay Address
-                  </mat-panel-title>
-                  <mat-panel-description>
-                    Display Primary Address
-                  </mat-panel-description>
-                </mat-expansion-panel-header>
+        <mat-accordion>
+          <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                Primay Address
+              </mat-panel-title>
+              <mat-panel-description>
+               {{panelOpenState ? 'Hide' : 'Display'}}Address
+              </mat-panel-description>
+            </mat-expansion-panel-header>
+            <div>
+              <mat-form-field>
+                <input matInput placeholder="Street 1">
+              </mat-form-field>
+              <mat-form-field>
+                <input matInput placeholder="Street2">
+              </mat-form-field>
+            </div>
+            <div>
                 <mat-form-field>
-                  <input matInput placeholder="Street 1">
+                  <input matInput placeholder="Street 3">
                 </mat-form-field>
                 <mat-form-field>
-                  <input matInput placeholder="Age">
+                  <input matInput placeholder="County">
                 </mat-form-field>
-              </mat-expansion-panel>
-              <mat-expansion-panel (opened)="panelOpenState = true"
-                                   (closed)="panelOpenState = false">
-                <mat-expansion-panel-header>
-                  <mat-panel-title>
-                   Primary Contact
-                  </mat-panel-title>
-                  <mat-panel-description>
-                    Currently I am {{panelOpenState ? 'open' : 'closed'}}
-                  </mat-panel-description>
-                </mat-expansion-panel-header>
-                <p>I'm visible because I am open</p>
-              </mat-expansion-panel>
-            </mat-accordion>
+              </div>
+              <div>
+                  <mat-form-field>
+                    <input matInput placeholder="Post Code">
+                  </mat-form-field>
+                  <mat-form-field>
+                    <input matInput placeholder="Country">
+                  </mat-form-field>
+                </div>
+          </mat-expansion-panel>
+          <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                Primary Contact
+              </mat-panel-title>
+              <mat-panel-description>
+                Currently I am {{panelOpenState ? 'open' : 'closed'}}
+              </mat-panel-description>
+            </mat-expansion-panel-header>
+            <p>I'm visible because I am open</p>
+          </mat-expansion-panel>
+        </mat-accordion>
       </div>
     </div>
   </div>
