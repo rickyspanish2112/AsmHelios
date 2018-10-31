@@ -16,7 +16,16 @@ export class MainContentComponent implements OnInit {
   checked = false;
   indeterminate = false;
   panelOpenState = false;
-  value: string;
+  shortCodeValue: string;
+  accountNumberValue: string;
+  accountNameValue: string;
+  mainTelephoneValue: string;
+  countryValue: string;
+  tinValue: string;
+  websiteValue: string;
+  externalIdValue: string;
+  faxNumberValue: string;
+  defaultCurrencyValue: string;
 
   constructor(private crmService: CrmaccountserviceService,
      private route: ActivatedRoute) {}
@@ -25,7 +34,16 @@ export class MainContentComponent implements OnInit {
     this.crmService.getAccount().subscribe(
       data => {
         this.account = data;
-        this.value = data.country;
+        this.shortCodeValue = data.shortCode;
+        this.accountNumberValue = data.accountNumber;
+        this.accountNameValue = data.accountName;
+        this.mainTelephoneValue = data.mainTelephone;
+        this.countryValue = data.country;
+        this.tinValue = data.tin;
+        this.websiteValue = data.website;
+        this.externalIdValue = data.externalId;
+        this.faxNumberValue = data.fax;
+        this.defaultCurrencyValue = data.defaultCurrencyCode;
       },
       error => (this.errorMessage = <any>error)
     );

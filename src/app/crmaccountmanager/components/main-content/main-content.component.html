@@ -6,28 +6,36 @@
 
 <div class="flex-container" fxLayout.xs="column" style="margin: 10px;">
   <div class="flex-item">
+    <div style="margin-top: 20px;">
+      <mat-form-field class="example-form-field">
+          <input matInput type="text" placeholder="Short Code" [(ngModel)]="shortCodeValue">
+          <button mat-button *ngIf="shortCodeValue" matSuffix mat-icon-button aria-label="Clear" (click)="shortCodeValue=''" >
+            <mat-icon>close</mat-icon>
+          </button>
+        </mat-form-field>
+  </div>
     <div>
-      <mat-form-field appearance="standard">
-        <mat-label>{{account.shortCode}}</mat-label>
-        <input id="textInput" placeholder="Enter ShortCode" matInput>
+      <mat-form-field class="example-form-field">
+        <input matInput type="text" placeholder="External ID" [(ngModel)]="externalIdValue">
+        <button mat-button *ngIf="externalIdValue" matSuffix mat-icon-button aria-label="Clear" (click)="externalIdValue=''" >
+          <mat-icon>close</mat-icon>
+        </button>
       </mat-form-field>
     </div>
     <div>
-      <mat-form-field appearance="standard">
-        <mat-label>{{account.accountNumber}}</mat-label>
-        <input id="textInput" placeholder="Enter Account Number" matInput>
+      <mat-form-field class="example-form-field">
+        <input matInput type="text" placeholder="Account Name" [(ngModel)]="accountNameValue">
+        <button mat-button *ngIf="accountNameValue" matSuffix mat-icon-button aria-label="Clear" (click)="accountNameValue=''" >
+          <mat-icon>close</mat-icon>
+        </button>
       </mat-form-field>
     </div>
     <div>
-      <mat-form-field appearance="standard">
-        <mat-label>{{account.accountName}}</mat-label>
-        <input id="textInput" placeholder="Enter Account Name" matInput>
-      </mat-form-field>
-    </div>
-    <div>
-      <mat-form-field appearance="standard">
-        <mat-label>{{account.mainTelephone}}</mat-label>
-        <input id="textInput" placeholder="Enter Main Telephone" matInput>
+      <mat-form-field class="example-form-field">
+        <input matInput type="text" placeholder="Main Telephone" [(ngModel)]="mainTelephoneValue">
+        <button mat-button *ngIf="mainTelephoneValue" matSuffix mat-icon-button aria-label="Clear" (click)="mainTelephoneValue=''" >
+          <mat-icon>close</mat-icon>
+        </button>
       </mat-form-field>
     </div>
     <div>
@@ -40,23 +48,27 @@
       </section>
     </div>
     <div style="margin-top: 20px;">
-        <mat-form-field class="example-form-field">
-            <input matInput type="text" placeholder="Enter Country" [(ngModel)]="value">
-            <button mat-button *ngIf="value" matSuffix mat-icon-button aria-label="Clear" (click)="value=''" >
-              <mat-icon>close</mat-icon>
-            </button>
-          </mat-form-field>
-    </div>
-    <div>
-      <mat-form-field appearance="standard">
-        <mat-label>{{account.tin}}</mat-label>
-        <input id="textInput" placeholder="Enter TIN" matInput>
+      <mat-form-field class="example-form-field">
+        <input matInput type="text" placeholder="Country" [(ngModel)]="countryValue">
+        <button mat-button *ngIf="countryValue" matSuffix mat-icon-button aria-label="Clear" (click)="countryValue=''" >
+          <mat-icon>close</mat-icon>
+        </button>
       </mat-form-field>
     </div>
     <div>
-      <mat-form-field appearance="standard">
-        <mat-label>{{account.website}}</mat-label>
-        <input id="textInput" placeholder="Enter Website" matInput>
+      <mat-form-field class="example-form-field">
+        <input matInput type="text" placeholder="TIN" [(ngModel)]="tinValue">
+        <button mat-button *ngIf="tinValue" matSuffix mat-icon-button aria-label="Clear" (click)="tinValue=''" >
+          <mat-icon>close</mat-icon>
+        </button>
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field class="example-form-field">
+        <input matInput type="text" placeholder="Website" [(ngModel)]="websiteValue">
+        <button mat-button *ngIf="websiteValue" matSuffix mat-icon-button aria-label="Clear" (click)="websiteValue=''" >
+          <mat-icon>close</mat-icon>
+        </button>
       </mat-form-field>
     </div>
     <div>
@@ -67,15 +79,19 @@
   </div>
   <div class="flex-item">
     <div>
-      <mat-form-field appearance="standard">
-        <mat-label>{{account.accountNumber}}</mat-label>
-        <input id="textInput" placeholder="Enter Account Number" matInput>
+      <mat-form-field class="example-form-field" style="margin-top: 20px;">
+        <input matInput type="text" placeholder="Account Number" [(ngModel)]="accountNumberValue">
+        <button mat-button *ngIf="accountNumberValue" matSuffix mat-icon-button aria-label="Clear" (click)="accountNumberValue=''" >
+          <mat-icon>close</mat-icon>
+        </button>
       </mat-form-field>
     </div>
     <div>
-      <mat-form-field appearance="standard">
-        <mat-label>{{account.fax}}</mat-label>
-        <input id="textInput" placeholder="Enter Fax Number" matInput>
+      <mat-form-field class="example-form-field" style="margin-top: 20px;">
+        <input matInput type="text" placeholder="FAX Number" [(ngModel)]="faxNumberValue">
+        <button mat-button *ngIf="faxNumberValue" matSuffix mat-icon-button aria-label="Clear" (click)="faxNumberValue=''" >
+          <mat-icon>close</mat-icon>
+        </button>
       </mat-form-field>
     </div>
     <div>
@@ -89,9 +105,11 @@
         </fieldset>
       </section>
       <div>
-        <mat-form-field appearance="standard" style="width:210px;">
-          <mat-label>{{account.defaultCurrencyCode}}</mat-label>
-          <input id="textInput" placeholder="Enter Default Currency Code" matInput>
+        <mat-form-field class="example-form-field" style="margin-top: 20px;">
+          <input matInput type="text" placeholder="Default Currency" [(ngModel)]="defaultCurrencyValue">
+          <button mat-button *ngIf="defaultCurrencyValue" matSuffix mat-icon-button aria-label="Clear" (click)="defaultCurrencyValue=''" >
+            <mat-icon>close</mat-icon>
+          </button>
         </mat-form-field>
       </div>
       <div>
