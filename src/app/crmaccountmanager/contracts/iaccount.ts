@@ -16,5 +16,4 @@ export interface Iaccount {
   website: string;
   createdBy: string;
   expiryDate: Date;
-  addresses: Iaddress[];
 }

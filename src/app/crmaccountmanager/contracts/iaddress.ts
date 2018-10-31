@@ -7,5 +7,5 @@ export interface Iaddress {
   county: string;
   postCode: string;
   country: string;
-  isPrimaryAddress: boolean;
+  isPrimary: boolean;
 }

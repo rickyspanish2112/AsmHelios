@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { CrmaccountserviceService } from '../../services/crmaccountservice.service';
 import { Account } from '../../models/account';
-import { Accountnode } from '../../models/accountnode';
 import { ActivatedRoute } from '@angular/router';
+import { Address } from '../../models/address';
 
 @Component({
   selector: 'app-main-content',
@@ -10,8 +10,8 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./main-content.component.scss']
 })
 export class MainContentComponent implements OnInit {
-
   account: Account = new Account();
+  address: Address = new Address();
   errorMessage: string;
   checked = false;
   indeterminate = false;
@@ -26,9 +26,19 @@ export class MainContentComponent implements OnInit {
   externalIdValue: string;
   faxNumberValue: string;
   defaultCurrencyValue: string;
+  createdBy: string;
 
-  constructor(private crmService: CrmaccountserviceService,
-     private route: ActivatedRoute) {}
+  streetOneValue: string;
+  streetTwoValue: string;
+  streetThreeValue: string;
+  countyValue: string;
+  postcodeValue: string;
+  primaryAddresscountryValue: string;
+
+  constructor(
+    private crmService: CrmaccountserviceService,
+    private route: ActivatedRoute
+  ) {}
 
   ngOnInit() {
     this.crmService.getAccount().subscribe(
@@ -44,6 +54,22 @@ export class MainContentComponent implements OnInit {
         this.externalIdValue = data.externalId;
         this.faxNumberValue = data.fax;
         this.defaultCurrencyValue = data.defaultCurrencyCode;
+        this.createdBy = data.createdBy;
+      },
+      error => (this.errorMessage = <any>error)
+    );
+  }
+
+  getPrimaryAddress() {
+    this.crmService.getPrimaryAddress().subscribe(
+      data => {
+       this.address = data;
+       this.streetOneValue = data.street1;
+       this.streetTwoValue = data.street2;
+       this.streetThreeValue = data.street3;
+       this.countyValue = data.county;
+       this.postcodeValue = data.postCode;
+       this.primaryAddresscountryValue = data.country;
       },
       error => (this.errorMessage = <any>error)
     );

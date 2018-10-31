@@ -1,5 +1,4 @@
 import { Iaccount } from '../contracts/iaccount';
-import {Iaddress} from '../contracts/iaddress';
 
 export class Account implements Iaccount {
   id: number;  shortCode: string;
@@ -16,5 +15,4 @@ export class Account implements Iaccount {
   website: string;
   createdBy: string;
   expiryDate: Date;
-  addresses: Iaddress[];
 }

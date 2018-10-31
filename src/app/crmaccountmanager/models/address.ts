@@ -9,5 +9,5 @@ export class Address implements Iaddress {
   county: string;
   postCode: string;
   country: string;
-  isPrimaryAddress: boolean;
+  isPrimary: boolean;
 }
