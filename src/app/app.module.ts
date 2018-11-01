@@ -2,6 +2,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 
+import {NgxMaskModule} from 'ngx-mask';
+
 import { AppComponent } from './app.component';
 import { Routes, RouterModule } from '@angular/router';
 import { CrmaccountmanagerComponent } from './crmaccountmanager/crmaccountmanager.component';
@@ -20,7 +22,8 @@ const routes: Routes = [
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes),
+    NgxMaskModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

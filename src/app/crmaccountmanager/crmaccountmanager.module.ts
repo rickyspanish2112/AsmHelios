@@ -6,6 +6,7 @@ import { MaterialModule } from '../shared/material.module';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { FormsModule } from '@angular/forms';
 import { Routes, RouterModule } from '@angular/router';
+import {NgxMaskModule} from 'ngx-mask';
 
 import { CrmaccountmanagerComponent } from './crmaccountmanager.component';
 import { ToolbarComponent } from './components/toolbar/toolbar.component';
@@ -32,7 +33,9 @@ const routes: Routes = [
     MaterialModule,
     FlexLayoutModule,
     FormsModule,
-    RouterModule.forChild(routes)
+    NgxMaskModule,
+    RouterModule.forChild(routes),
+    NgxMaskModule.forChild()
   ],
   providers: [
     CrmaccountserviceService,
