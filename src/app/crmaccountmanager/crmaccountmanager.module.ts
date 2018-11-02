@@ -14,15 +14,19 @@ import { MainContentComponent } from './components/main-content/main-content.com
 import { SidenavComponent } from './components/sidenav/sidenav.component';
 import { CrmaccountserviceService } from './services/crmaccountservice.service';
 import { MAT_DATE_LOCALE } from '@angular/material/core';
+import { AddressesComponent } from './components/addresses/addresses.component';
 
 const routes: Routes = [
   {
     path: '', component: CrmaccountmanagerComponent,
-    children: [
-      { path: ':id', component: MainContentComponent },
-      { path: '', component: MainContentComponent }
+    children:
+    [
+      { path: 'account', component: MainContentComponent },
+      { path: 'addresses', component: AddressesComponent },
+      { path: '', component: MainContentComponent },
     ]
   },
+
   { path: '**', redirectTo: '' }
 ];
 
@@ -44,7 +48,8 @@ const routes: Routes = [
   declarations: [CrmaccountmanagerComponent,
     ToolbarComponent,
     MainContentComponent,
-    SidenavComponent
+    SidenavComponent,
+    AddressesComponent
   ]
 })
 export class CrmaccountmanagerModule { }

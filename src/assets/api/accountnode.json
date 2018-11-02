@@ -2,38 +2,45 @@
   {
     "id": 1,
     "node": "Account",
-    "avatar":"folder"
+    "avatar":"folder",
+    "nodeRouteIdentifier": "account"
   },
   {
     "id": 2,
     "node": "Addresses",
-    "avatar":"meeting_room"
+    "avatar":"meeting_room",
+    "nodeRouteIdentifier": "addresses"
 
   },
   {
     "id": 5,
     "node": "Contacts",
-    "avatar":"group"
+    "avatar":"group",
+    "nodeRouteIdentifier": "AddressesComponent3"
   },
   {
     "id": 8,
     "node": "Account Notes",
-    "avatar":"note"
+    "avatar":"note",
+    "nodeRouteIdentifier": "AddressesComponent4"
   },
   {
     "id": 1,
     "node": "Products",
-    "avatar":"shopping_basket"
+    "avatar":"shopping_basket",
+    "nodeRouteIdentifier": "AddressesComponent5"
   },
   {
     "id": 2,
     "node": "NCTS",
-    "avatar":"airport_shuttle"
+    "avatar":"airport_shuttle",
+    "nodeRouteIdentifier": "AddressesComponent6"
 
   },
   {
     "id": 5,
     "node": "Job Costing",
-    "avatar":"account_balance"
+    "avatar":"account_balance",
+    "nodeRouteIdentifier": "AddressesComponent"
   }
 ]

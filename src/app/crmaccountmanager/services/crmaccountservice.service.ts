@@ -1,13 +1,13 @@
-import { Injectable } from "@angular/core";
-import { Account } from "../models/account";
-import { HttpClient, HttpErrorResponse } from "@angular/common/http";
+import { Injectable } from '@angular/core';
+import { Account } from '../models/account';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 
-import { Accountnode } from "../models/accountnode";
-import { Observable, throwError } from "rxjs";
-import { catchError, tap, map } from "rxjs/operators";
-import { Iaccount } from "../contracts/iaccount";
-import { Iaddress } from "../contracts/iaddress";
-import { isNgTemplate } from '@angular/compiler';
+import { Accountnode } from '../models/accountnode';
+import { Observable, throwError } from 'rxjs';
+import { catchError, tap, map } from 'rxjs/operators';
+import { Iaccount } from '../contracts/iaccount';
+import { Iaddress } from '../contracts/iaddress';
+import { Address } from '../models/address';
 
 @Injectable({
   providedIn: 'root'
@@ -67,4 +67,20 @@ export class CrmaccountserviceService {
     console.error(errorMessage);
     return throwError(errorMessage);
   }
+
+getAllAddresses(): Observable<Address[]> {
+  const accountUrl = '../../../assets/api/addresses.json';
+
+  return this.http.get<Address[]>(accountUrl).pipe(
+    tap(data =>
+      console.log(
+        'The following addresses were returned: ' + JSON.stringify(data)
+      )
+    ),
+    catchError(this.handleError)
+  );
 }
+}
+
+
+
