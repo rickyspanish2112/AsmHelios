@@ -60,7 +60,7 @@ export class MainContentComponent implements OnInit {
     );
   }
 
-  getPrimaryAddress() {
+ private getPrimaryAddress() {
     this.crmService.getPrimaryAddress().subscribe(
       data => {
        this.address = data;
@@ -74,4 +74,5 @@ export class MainContentComponent implements OnInit {
       error => (this.errorMessage = <any>error)
     );
   }
+
 }

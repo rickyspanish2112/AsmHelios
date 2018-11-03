@@ -1,3 +1,7 @@
+<div *ngIf="!account">
+  <mat-spinner></mat-spinner>
+</div>
+<div *ngIf="account">
 <mat-card class="example-card" style="color:rgb(63, 95, 201);">
   <mat-card-header>
     <mat-card-title>Account Name: {{account.accountName}}</mat-card-title>
@@ -193,3 +197,4 @@
       </div>
     </div>
   </div>
+</div>
