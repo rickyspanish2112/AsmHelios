@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { CrmaccountserviceService } from '../../services/crmaccountservice.service';
 import { Address } from '../../models/address';
-import { MatTableDataSource, MatPaginator, MatSort } from '@angular/material';
+import { MatTableDataSource, MatPaginator, MatSort, Sort } from '@angular/material';
 
 /* export interface UserData {
   id: string;
@@ -75,20 +75,18 @@ export class AddressesComponent implements OnInit {
   constructor(private crmService: CrmaccountserviceService) {
     // Create 100 users
    // const users = Array.from({ length: 100 }, (_, k) => createNewUser(k + 1));
-
-    let addresses = new Array<Address>();
-
-    crmService.getAllAddresses().subscribe(data => {
-      addresses = data;
-      this.dataSource = new MatTableDataSource(addresses);
-    });
-
-    // Assign the data to the data source for the table to render
   }
 
   ngOnInit() {
-    this.dataSource.paginator = this.paginator;
-    this.dataSource.sort = this.sort;
+    let addresses = new Array<Address>();
+
+    this.crmService.getAllAddresses().subscribe(data => {
+      addresses = data;
+      this.dataSource = new MatTableDataSource(addresses);
+
+      this.dataSource.paginator = this.paginator;
+      this.dataSource.sort = this.sort;
+    });
   }
 
   applyFilter(filterValue: string) {

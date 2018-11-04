@@ -51,8 +51,10 @@ export class CrmaccountserviceService {
     );
   }
   doGetPrimaryAddress(data: Iaddress[]): Iaddress {
-   const bob = data.find(x => x.isPrimary);
-   return bob;
+   const primaryAddress = data.find(x => x.isPrimary);
+   console.log('The following primary address was returned: ' + JSON.stringify(data)
+  );
+   return primaryAddress;
   }
 
   private handleError(err: HttpErrorResponse) {
