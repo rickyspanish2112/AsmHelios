@@ -1,4 +1,7 @@
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
+import { MatDialog } from '@angular/material';
+
+import { NewAccountDialogComponent } from '../new-account-dialog/new-account-dialog.component';
 
 @Component({
   selector: 'app-toolbar',
@@ -8,9 +11,18 @@ import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 export class ToolbarComponent implements OnInit {
 
   @Output() toggleSidenav = new EventEmitter<void>();
-  constructor() { }
+
+  constructor(private matDialog: MatDialog) { }
 
   ngOnInit() {
+  }
+
+  openAddAccountDialog(): void {
+this.matDialog.open(NewAccountDialogComponent,
+  {
+    width: '450px'
+  });
+
   }
 
 }

@@ -15,6 +15,7 @@ import { SidenavComponent } from './components/sidenav/sidenav.component';
 import { CrmaccountserviceService } from './services/crmaccountservice.service';
 import { MAT_DATE_LOCALE } from '@angular/material/core';
 import { AddressesComponent } from './components/addresses/addresses.component';
+import { NewAccountDialogComponent } from './components/new-account-dialog/new-account-dialog.component';
 
 const routes: Routes = [
   {
@@ -49,7 +50,11 @@ const routes: Routes = [
     ToolbarComponent,
     MainContentComponent,
     SidenavComponent,
-    AddressesComponent
+    AddressesComponent,
+    NewAccountDialogComponent
+  ],
+  entryComponents: [
+    NewAccountDialogComponent
   ]
 })
 export class CrmaccountmanagerModule { }
