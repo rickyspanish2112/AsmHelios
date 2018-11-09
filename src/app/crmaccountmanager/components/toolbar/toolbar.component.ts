@@ -3,6 +3,7 @@ import { MatDialog } from '@angular/material';
 
 import { NewAccountDialogComponent } from '../new-account-dialog/new-account-dialog.component';
 import { NewAddressDialogComponent } from '../new-address-dialog/new-address-dialog.component';
+import { NewContactDialogComponent } from '../new-contact-dialog/new-contact-dialog.component';
 
 @Component({
   selector: 'app-toolbar',
@@ -28,4 +29,11 @@ export class ToolbarComponent implements OnInit {
       width: '450px'
     });
   }
+
+  openAddContactDialog(): void {
+    this.matDialog.open(NewContactDialogComponent, {
+      width: '450px'
+    });
+  }
+
 }
