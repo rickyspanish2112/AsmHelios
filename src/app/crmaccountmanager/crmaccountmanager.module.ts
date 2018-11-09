@@ -16,6 +16,7 @@ import { CrmaccountserviceService } from './services/crmaccountservice.service';
 import { MAT_DATE_LOCALE } from '@angular/material/core';
 import { AddressesComponent } from './components/addresses/addresses.component';
 import { NewAccountDialogComponent } from './components/new-account-dialog/new-account-dialog.component';
+import { NewAddressDialogComponent } from './components/new-address-dialog/new-address-dialog.component';
 
 const routes: Routes = [
   {
@@ -51,10 +52,12 @@ const routes: Routes = [
     MainContentComponent,
     SidenavComponent,
     AddressesComponent,
-    NewAccountDialogComponent
+    NewAccountDialogComponent,
+    NewAddressDialogComponent
   ],
   entryComponents: [
-    NewAccountDialogComponent
+    NewAccountDialogComponent,
+    NewAddressDialogComponent
   ]
 })
 export class CrmaccountmanagerModule { }
