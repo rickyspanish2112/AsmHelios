@@ -4,7 +4,7 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { MaterialModule } from '../shared/material.module';
 import { FlexLayoutModule } from '@angular/flex-layout';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Routes, RouterModule } from '@angular/router';
 import {NgxMaskModule} from 'ngx-mask';
 
@@ -42,7 +42,8 @@ const routes: Routes = [
     FormsModule,
     NgxMaskModule,
     RouterModule.forChild(routes),
-    NgxMaskModule.forChild()
+    NgxMaskModule.forChild(),
+    ReactiveFormsModule
   ],
   providers: [
     CrmaccountserviceService,

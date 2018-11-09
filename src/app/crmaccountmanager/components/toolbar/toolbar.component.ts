@@ -25,9 +25,14 @@ export class ToolbarComponent implements OnInit {
   }
 
   openAddAddressDialog(): void {
-    this.matDialog.open(NewAddressDialogComponent, {
+  const dialogRef =  this.matDialog.open(NewAddressDialogComponent, {
       width: '450px'
     });
+
+dialogRef.afterClosed().subscribe(result => {
+  console.log('The dialog was closed', result);
+});
+
   }
 
   openAddContactDialog(): void {

@@ -58,3 +58,11 @@
   align-content: center;
   align-items: center;
 }
+
+.example-container > * {
+  width: 100%;
+}
+
+.example-form-field {
+  width: 200px;
+}

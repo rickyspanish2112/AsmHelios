@@ -1,10 +1,8 @@
-<div *ngIf="!account">
-  <mat-spinner></mat-spinner>
-</div>
+<div *ngIf="!account"><mat-spinner></mat-spinner></div>
 <div *ngIf="account">
   <mat-card class="example-card" style="color:rgb(63, 95, 201);">
     <mat-card-header>
-      <mat-card-title>Account Name: {{account.accountName}}</mat-card-title>
+      <mat-card-title>Account Name: {{ account.accountName }}</mat-card-title>
     </mat-card-header>
   </mat-card>
 
@@ -12,33 +10,83 @@
     <div class="flex-item">
       <div style="margin-top: 20px;">
         <mat-form-field class="example-form-field">
-          <input matInput type="text" placeholder="Short Code" [(ngModel)]="shortCodeValue">
-          <button mat-button *ngIf="shortCodeValue" matSuffix mat-icon-button aria-label="Clear" (click)="shortCodeValue=''">
+          <input
+            matInput
+            type="text"
+            placeholder="Short Code"
+            [(ngModel)]="account.shortCode"
+          />
+          <button
+            mat-button
+            *ngIf="account.shortCode"
+            matSuffix
+            mat-icon-button
+            aria-label="Clear"
+            (click)="account.shortCode = ''"
+          >
             <mat-icon>close</mat-icon>
           </button>
         </mat-form-field>
       </div>
       <div>
         <mat-form-field class="example-form-field">
-          <input matInput type="text" placeholder="External ID" [(ngModel)]="externalIdValue">
-          <button mat-button *ngIf="externalIdValue" matSuffix mat-icon-button aria-label="Clear" (click)="externalIdValue=''">
+          <input
+            matInput
+            type="text"
+            placeholder="External ID"
+            [(ngModel)]="account.externalId"
+          />
+          <button
+            mat-button
+            *ngIf="account.externalId"
+            matSuffix
+            mat-icon-button
+            aria-label="Clear"
+            (click)="account.externalId = ''"
+          >
             <mat-icon>close</mat-icon>
           </button>
         </mat-form-field>
       </div>
       <div>
         <mat-form-field class="example-form-field">
-          <input matInput type="text" placeholder="Account Name" [(ngModel)]="accountNameValue">
-          <button mat-button *ngIf="accountNameValue" matSuffix mat-icon-button aria-label="Clear" (click)="accountNameValue=''">
+          <input
+            matInput
+            type="text"
+            placeholder="Account Name"
+            [(ngModel)]="account.accountName"
+          />
+          <button
+            mat-button
+            *ngIf="account.accountName"
+            matSuffix
+            mat-icon-button
+            aria-label="Clear"
+            (click)="account.accountName = ''"
+          >
             <mat-icon>close</mat-icon>
           </button>
         </mat-form-field>
       </div>
       <div>
         <mat-form-field class="example-form-field">
-          <input matInput type="text" placeholder="Main Telephone" [(ngModel)]="mainTelephoneValue" mask="(000) 000-0000"
-            prefix="+44" [showMaskTyped]="true">
-          <button mat-button *ngIf="mainTelephoneValue" matSuffix mat-icon-button aria-label="Clear" (click)="mainTelephoneValue=''">
+          <input
+            matInput
+            type="text"
+            placeholder="Main Telephone"
+            [(ngModel)]="account.mainTelephone"
+            mask="(000) 000-0000"
+            prefix="+44"
+            [showMaskTyped]="true"
+          />
+          <button
+            mat-button
+            *ngIf="account.mainTelephone"
+            matSuffix
+            mat-icon-button
+            aria-label="Clear"
+            (click)="account.mainTelephone = ''"
+          >
             <mat-icon>close</mat-icon>
           </button>
         </mat-form-field>
@@ -47,55 +95,126 @@
         <section class="example-section" style="width:200px;">
           <fieldset class="fieldset">
             <legend>Account Type:</legend>
-            <mat-checkbox class="example-margin" [(ngModel)]="checked">ExportAccount</mat-checkbox>
-            <mat-checkbox class="example-margin" [(ngModel)]="indeterminate">Import Account</mat-checkbox>
+            <mat-checkbox class="example-margin" [(ngModel)]="checked"
+              >ExportAccount</mat-checkbox
+            >
+            <mat-checkbox class="example-margin" [(ngModel)]="indeterminate"
+              >Import Account</mat-checkbox
+            >
           </fieldset>
         </section>
       </div>
       <div style="margin-top: 20px;">
         <mat-form-field class="example-form-field">
-          <input matInput type="text" placeholder="Country" [(ngModel)]="countryValue">
-          <button mat-button *ngIf="countryValue" matSuffix mat-icon-button aria-label="Clear" (click)="countryValue=''">
+          <input
+            matInput
+            type="text"
+            placeholder="Country"
+            [(ngModel)]="account.country"
+          />
+          <button
+            mat-button
+            *ngIf="account.country"
+            matSuffix
+            mat-icon-button
+            aria-label="Clear"
+            (click)="account.country = ''"
+          >
             <mat-icon>close</mat-icon>
           </button>
         </mat-form-field>
       </div>
       <div>
         <mat-form-field class="example-form-field">
-          <input matInput type="text" placeholder="TIN" [(ngModel)]="tinValue">
-          <button mat-button *ngIf="tinValue" matSuffix mat-icon-button aria-label="Clear" (click)="tinValue=''">
+          <input
+            matInput
+            type="text"
+            placeholder="TIN"
+            [(ngModel)]="account.tin"
+          />
+          <button
+            mat-button
+            *ngIf="account.tin"
+            matSuffix
+            mat-icon-button
+            aria-label="Clear"
+            (click)="account.tin = ''"
+          >
             <mat-icon>close</mat-icon>
           </button>
         </mat-form-field>
       </div>
       <div>
         <mat-form-field class="example-form-field">
-          <input matInput type="text" placeholder="Website" [(ngModel)]="websiteValue">
-          <button mat-button *ngIf="websiteValue" matSuffix mat-icon-button aria-label="Clear" (click)="websiteValue=''">
+          <input
+            matInput
+            type="text"
+            placeholder="Website"
+            [(ngModel)]="account.website"
+          />
+          <button
+            mat-button
+            *ngIf="account.website"
+            matSuffix
+            mat-icon-button
+            aria-label="Clear"
+            (click)="account.website = ''"
+          >
             <mat-icon>close</mat-icon>
           </button>
         </mat-form-field>
       </div>
       <div>
         <mat-form-field class="example-full-width">
-          <input matInput placeholder="Created by" disabled value="{{account.createdBy}}">
+          <input
+            matInput
+            placeholder="Created by"
+            disabled
+            value="{{account.createdBy}}"
+          />
         </mat-form-field>
       </div>
     </div>
     <div class="flex-item">
       <div>
         <mat-form-field class="example-form-field" style="margin-top: 20px;">
-          <input matInput type="text" placeholder="Account Number" [(ngModel)]="accountNumberValue">
-          <button mat-button *ngIf="accountNumberValue" matSuffix mat-icon-button aria-label="Clear" (click)="accountNumberValue=''">
+          <input
+            matInput
+            type="text"
+            placeholder="Account Number"
+            [(ngModel)]="account.accountNumber"
+          />
+          <button
+            mat-button
+            *ngIf="account.accountNumber"
+            matSuffix
+            mat-icon-button
+            aria-label="Clear"
+            (click)="account.accountNumber = ''"
+          >
             <mat-icon>close</mat-icon>
           </button>
         </mat-form-field>
       </div>
       <div>
         <mat-form-field class="example-form-field" style="margin-top: 20px;">
-          <input matInput type="text" placeholder="FAX Number" [(ngModel)]="faxNumberValue" mask="(000) 000-0000"
-            prefix="+44" [showMaskTyped]="true">
-          <button mat-button *ngIf="faxNumberValue" matSuffix mat-icon-button aria-label="Clear" (click)="faxNumberValue=''">
+          <input
+            matInput
+            type="text"
+            placeholder="FAX Number"
+            [(ngModel)]="account.fax"
+            mask="(000) 000-0000"
+            prefix="+44"
+            [showMaskTyped]="true"
+          />
+          <button
+            mat-button
+            *ngIf="account.fax"
+            matSuffix
+            mat-icon-button
+            aria-label="Clear"
+            (click)="account.fax = ''"
+          >
             <mat-icon>close</mat-icon>
           </button>
         </mat-form-field>
@@ -104,91 +223,210 @@
         <section class="example-section" style="width:300px;">
           <fieldset class="fieldset">
             <legend>Customer Type:</legend>
-            <mat-checkbox class="example-margin" [(ngModel)]="checked">Customer</mat-checkbox>
-            <mat-checkbox class="example-margin" [(ngModel)]="indeterminate">Supplier</mat-checkbox>
-            <mat-checkbox class="example-margin" [(ngModel)]="checked">Prostpect</mat-checkbox>
-            <mat-checkbox class="example-margin" [(ngModel)]="indeterminate">Invoicee</mat-checkbox>
+            <mat-checkbox class="example-margin" [(ngModel)]="checked"
+              >Customer</mat-checkbox
+            >
+            <mat-checkbox class="example-margin" [(ngModel)]="indeterminate"
+              >Supplier</mat-checkbox
+            >
+            <mat-checkbox class="example-margin" [(ngModel)]="checked"
+              >Prostpect</mat-checkbox
+            >
+            <mat-checkbox class="example-margin" [(ngModel)]="indeterminate"
+              >Invoicee</mat-checkbox
+            >
           </fieldset>
         </section>
         <div>
           <mat-form-field class="example-form-field" style="margin-top: 20px;">
-            <input matInput type="text" placeholder="Default Currency" [(ngModel)]="defaultCurrencyValue">
-            <button mat-button *ngIf="defaultCurrencyValue" matSuffix mat-icon-button aria-label="Clear" (click)="defaultCurrencyValue=''">
+            <input
+              matInput
+              type="text"
+              placeholder="Default Currency"
+              [(ngModel)]="account.defaultCurrencyCode"
+            />
+            <button
+              mat-button
+              *ngIf="account.defaultCurrencyCode"
+              matSuffix
+              mat-icon-button
+              aria-label="Clear"
+              (click)="account.defaultCurrencyCode = ''"
+            >
               <mat-icon>close</mat-icon>
             </button>
           </mat-form-field>
         </div>
         <div>
           <mat-form-field>
-            <input matInput [matDatepicker]="picker" placeholder="Choose a date">
-            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <input
+              matInput
+              [matDatepicker]="picker"
+              placeholder="Choose a date"
+            />
+            <mat-datepicker-toggle
+              matSuffix
+              [for]="picker"
+            ></mat-datepicker-toggle>
             <mat-datepicker #picker></mat-datepicker>
           </mat-form-field>
         </div>
         <div>
           <mat-accordion>
-            <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false" (afterExpand)="getPrimaryAddress()">
+            <mat-expansion-panel
+              (opened)="panelOpenState = true"
+              (closed)="panelOpenState = false"
+              (afterExpand)="getPrimaryAddress()"
+            >
               <mat-expansion-panel-header>
-                <mat-panel-title>
-                  Primay Address
-                </mat-panel-title>
+                <mat-panel-title> Primay Address </mat-panel-title>
                 <mat-panel-description>
-                  {{panelOpenState ? 'Hide' : 'Display'}} Address
+                  {{ panelOpenState ? "Hide" : "Display" }} Address
                 </mat-panel-description>
               </mat-expansion-panel-header>
-                <div>
-                  <mat-form-field class="example-form-field" style="margin-top: 20px;">
-                    <input matInput type="text" placeholder="Street 1" [(ngModel)]="streetOneValue">
-                    <button mat-button *ngIf="streetOneValue " matSuffix mat-icon-button aria-label="Clear" (click)="streetOneValue=''">
-                      <mat-icon>close</mat-icon>
-                    </button>
-                  </mat-form-field>
+              <div>
+                <mat-form-field
+                  class="example-form-field"
+                  style="margin-top: 20px;"
+                >
+                  <input
+                    matInput
+                    type="text"
+                    placeholder="Street 1"
+                    [(ngModel)]="address.street1"
+                  />
+                  <button
+                    mat-button
+                    *ngIf="address.street1"
+                    matSuffix
+                    mat-icon-button
+                    aria-label="Clear"
+                    (click)="address.street1 = ''"
+                  >
+                    <mat-icon>close</mat-icon>
+                  </button>
+                </mat-form-field>
 
-                  <mat-form-field class="example-form-field" style="margin-top: 20px;">
-                    <input matInput type="text" placeholder="Street 2" [(ngModel)]="streetTwoValue">
-                    <button mat-button *ngIf="streetTwoValue " matSuffix mat-icon-button aria-label="Clear" (click)="streetTwoValue=''">
-                      <mat-icon>close</mat-icon>
-                    </button>
-                  </mat-form-field>
-                </div>
-                <div>
-                  <mat-form-field class="example-form-field" style="margin-top: 20px;">
-                    <input matInput type="text" placeholder="Street 3" [(ngModel)]="streetThreeValue">
-                    <button mat-button *ngIf="streetThreeValue " matSuffix mat-icon-button aria-label="Clear" (click)="streetThreeValue=''">
-                      <mat-icon>close</mat-icon>
-                    </button>
-                  </mat-form-field>
-                  <mat-form-field class="example-form-field" style="margin-top: 20px;">
-                    <input matInput type="text" placeholder="Street 2" [(ngModel)]="countyValue">
-                    <button mat-button *ngIf="countyValue " matSuffix mat-icon-button aria-label="Clear" (click)="countyValue=''">
-                      <mat-icon>close</mat-icon>
-                    </button>
-                  </mat-form-field>
-                </div>
-                <div>
-                  <mat-form-field class="example-form-field" style="margin-top: 20px;">
-                    <input matInput type="text" placeholder="Post Code" [(ngModel)]="postcodeValue">
-                    <button mat-button *ngIf="postcodeValue " matSuffix mat-icon-button aria-label="Clear" (click)="postcodeValue=''">
-                      <mat-icon>close</mat-icon>
-                    </button>
-                  </mat-form-field>
+                <mat-form-field
+                  class="example-form-field"
+                  style="margin-top: 20px;"
+                >
+                  <input
+                    matInput
+                    type="text"
+                    placeholder="Street 2"
+                    [(ngModel)]="address.street2"
+                  />
+                  <button
+                    mat-button
+                    *ngIf="address.street2"
+                    matSuffix
+                    mat-icon-button
+                    aria-label="Clear"
+                    (click)="address.street2 = ''"
+                  >
+                    <mat-icon>close</mat-icon>
+                  </button>
+                </mat-form-field>
+              </div>
+              <div>
+                <mat-form-field
+                  class="example-form-field"
+                  style="margin-top: 20px;"
+                >
+                  <input
+                    matInput
+                    type="text"
+                    placeholder="Street 3"
+                    [(ngModel)]="address.street3"
+                  />
+                  <button
+                    mat-button
+                    *ngIf="address.street3"
+                    matSuffix
+                    mat-icon-button
+                    aria-label="Clear"
+                    (click)="address.street3 = ''"
+                  >
+                    <mat-icon>close</mat-icon>
+                  </button>
+                </mat-form-field>
+                <mat-form-field
+                  class="example-form-field"
+                  style="margin-top: 20px;"
+                >
+                  <input
+                    matInput
+                    type="text"
+                    placeholder="County"
+                    [(ngModel)]="address.county"
+                  />
+                  <button
+                    mat-button
+                    *ngIf="address.county"
+                    matSuffix
+                    mat-icon-button
+                    aria-label="Clear"
+                    (click)="address.county = ''"
+                  >
+                    <mat-icon>close</mat-icon>
+                  </button>
+                </mat-form-field>
+              </div>
+              <div>
+                <mat-form-field
+                  class="example-form-field"
+                  style="margin-top: 20px;"
+                >
+                  <input
+                    matInput
+                    type="text"
+                    placeholder="Post Code"
+                    [(ngModel)]="address.postCode"
+                  />
+                  <button
+                    mat-button
+                    *ngIf="address.postCode"
+                    matSuffix
+                    mat-icon-button
+                    aria-label="Clear"
+                    (click)="address.postCode = ''"
+                  >
+                    <mat-icon>close</mat-icon>
+                  </button>
+                </mat-form-field>
 
-                  <mat-form-field class="example-form-field" style="margin-top: 20px;">
-                    <input matInput type="text" placeholder="Country" [(ngModel)]="primaryAddresscountryValue">
-                    <button mat-button *ngIf="primaryAddresscountryValue " matSuffix mat-icon-button aria-label="Clear"
-                      (click)="primaryAddresscountryValue=''">
-                      <mat-icon>close</mat-icon>
-                    </button>
-                  </mat-form-field>
-                </div>
+                <mat-form-field
+                  class="example-form-field"
+                  style="margin-top: 20px;"
+                >
+                  <input
+                    matInput
+                    type="text"
+                    placeholder="Country"
+                    [(ngModel)]="address.country"
+                  />
+                  <button
+                    mat-button
+                    *ngIf="address.country"
+                    matSuffix
+                    mat-icon-button
+                    aria-label="Clear"
+                    (click)="address.country = ''"
+                  >
+                    <mat-icon>close</mat-icon>
+                  </button>
+                </mat-form-field>
+              </div>
             </mat-expansion-panel>
-            <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+            <mat-expansion-panel
+              (opened)="panelOpenState = true"
+              (closed)="panelOpenState = false"
+            >
               <mat-expansion-panel-header>
-                <mat-panel-title>
-                  Primary Contact
-                </mat-panel-title>
+                <mat-panel-title> Primary Contact </mat-panel-title>
                 <mat-panel-description>
-                  {{panelOpenState ? 'Hide' : 'Display'}} Contact
+                  {{ panelOpenState ? "Hide" : "Display" }} Contact
                 </mat-panel-description>
               </mat-expansion-panel-header>
               <p>I'm visible because I am open</p>
@@ -198,3 +436,4 @@
       </div>
     </div>
   </div>
+</div>

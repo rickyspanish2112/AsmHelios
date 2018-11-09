@@ -13,18 +13,19 @@ import { Address } from '../models/address';
   providedIn: 'root'
 })
 export class CrmaccountserviceService {
+
   constructor(private http: HttpClient) {}
 
   getAccount(): Observable<Iaccount> {
     const accountUrl = '../../../assets/api/account.json';
     return this.http.get<Iaccount>(accountUrl).pipe(
-      tap(data =>
-        console.log(
-          'The following account was returned: ' + JSON.stringify(data)
-        )
-      ),
+      tap(this.DoGetAddresses()),
       catchError(this.handleError)
     );
+  }
+
+  private DoGetAddresses(): (x: Iaccount) => void {
+    return data => console.log('The following account was returned: ' + JSON.stringify(data));
   }
 
   getAccountNodes(): Observable<Accountnode[]> {
@@ -55,6 +56,13 @@ export class CrmaccountserviceService {
    console.log('The following primary address was returned: ' + JSON.stringify(data)
   );
    return primaryAddress;
+  }
+
+  addAddress(address: Address): Promise<Address> {
+    return new Promise((resolver, reject) => {
+      resolver(address);
+    });
+
   }
 
   private handleError(err: HttpErrorResponse) {
