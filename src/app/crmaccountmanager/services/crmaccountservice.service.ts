@@ -19,12 +19,12 @@ export class CrmaccountserviceService {
   getAccount(): Observable<Iaccount> {
     const accountUrl = '../../../assets/api/account.json';
     return this.http.get<Iaccount>(accountUrl).pipe(
-      tap(this.DoGetAddresses()),
+      tap(this.DoGetAccount()),
       catchError(this.handleError)
     );
   }
 
-  private DoGetAddresses(): (x: Iaccount) => void {
+  private DoGetAccount(): (x: Iaccount) => void {
     return data => console.log('The following account was returned: ' + JSON.stringify(data));
   }
 
@@ -32,21 +32,20 @@ export class CrmaccountserviceService {
     const accountUrl = '../../../assets/api/accountnode.json';
 
     return this.http.get<Accountnode[]>(accountUrl).pipe(
-      tap(data =>
-        console.log(
-          'The following account nodes were returned: ' + JSON.stringify(data)
-        )
-      ),
+      tap(this.DoGetAccountNodes()),
       catchError(this.handleError)
     );
+  }
+
+  private DoGetAccountNodes(): (x: Accountnode[]) => void {
+    return data => console.log('The following account nodes were returned: ' + JSON.stringify(data));
   }
 
   getPrimaryAddress(): Observable<Iaddress> {
     const addressUrl = '../../../assets/api/addresses.json';
 
     return this.http.get<Iaddress[]>(addressUrl).pipe(
-      map(data => {
-       return this.doGetPrimaryAddress(data);
+      map(data => {return this.doGetPrimaryAddress(data);
       }),
       catchError(this.handleError)
     );
@@ -91,6 +90,3 @@ getAllAddresses(): Observable<Address[]> {
   );
 }
 }
-
-
-
