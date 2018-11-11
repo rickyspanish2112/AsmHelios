@@ -1,7 +1,13 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { CrmaccountserviceService } from '../../services/crmaccountservice.service';
 import { Address } from '../../models/address';
-import { MatTableDataSource, MatPaginator, MatSort, Sort } from '@angular/material';
+import {
+  MatTableDataSource,
+  MatPaginator,
+  MatSort,
+  Sort
+} from '@angular/material';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-addresses',
@@ -18,25 +24,25 @@ export class AddressesComponent implements OnInit {
     'postCode',
     'country'
   ];
-  dataSource: MatTableDataSource<Address>;
+  addresses: Observable<Address[]>;
+  dataSource = new MatTableDataSource<Address>();
 
   @ViewChild(MatPaginator)
   paginator: MatPaginator;
   @ViewChild(MatSort)
   sort: MatSort;
 
-  constructor(private crmService: CrmaccountserviceService) {  }
+  constructor(private crmService: CrmaccountserviceService) {}
 
-  ngOnInit() {
-    let addresses = new Array<Address>();
+  ngOnInit(): void {
+    this.addresses = this.crmService.addresses;
+    this.crmService.loadAll();
 
-    this.crmService.getAllAddresses().subscribe(data => {
-      addresses = data;
-      this.dataSource = new MatTableDataSource(addresses);
-
-      this.dataSource.paginator = this.paginator;
-      this.dataSource.sort = this.sort;
+    this.addresses.subscribe(data => {
+      this.dataSource.data = data;
     });
+    this.dataSource.paginator = this.paginator;
+    this.dataSource.sort = this.sort;
   }
 
   applyFilter(filterValue: string) {
@@ -46,4 +52,5 @@ export class AddressesComponent implements OnInit {
       this.dataSource.paginator.firstPage();
     }
   }
+
 }

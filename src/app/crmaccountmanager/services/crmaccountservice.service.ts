@@ -3,7 +3,7 @@ import { Account } from '../models/account';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 
 import { Accountnode } from '../models/accountnode';
-import { Observable, throwError } from 'rxjs';
+import { Observable, throwError, BehaviorSubject } from 'rxjs';
 import { catchError, tap, map } from 'rxjs/operators';
 import { Iaccount } from '../contracts/iaccount';
 import { Iaddress } from '../contracts/iaddress';
@@ -13,19 +13,34 @@ import { Address } from '../models/address';
   providedIn: 'root'
 })
 export class CrmaccountserviceService {
+  private _addresses: BehaviorSubject<Address[]>;
 
-  constructor(private http: HttpClient) {}
+  private dataStore: {
+    addresses: Address[];
+  };
 
-  getAccount(): Observable<Iaccount> {
-    const accountUrl = '../../../assets/api/account.json';
-    return this.http.get<Iaccount>(accountUrl).pipe(
-      tap(this.DoGetAccount()),
-      catchError(this.handleError)
-    );
+  // Allows component sto subscribe to this observable
+  get addresses(): Observable<Address[]> {
+    return this._addresses.asObservable();
   }
 
-  private DoGetAccount(): (x: Iaccount) => void {
-    return data => console.log('The following account was returned: ' + JSON.stringify(data));
+  constructor(private http: HttpClient) {
+    this.dataStore = { addresses: [] };
+    this._addresses = new BehaviorSubject<Address[]>([]);
+  }
+
+  loadAll() {
+    const addressUrl = '../../../assets/api/addresses.json';
+
+    return this.http.get<Address[]>(addressUrl).subscribe(
+      data => {
+        this.dataStore.addresses = data;
+        this._addresses.next(Object.assign({}, this.dataStore).addresses);
+      },
+      error => {
+        console.log('Failed to fetch addresses');
+      }
+    );
   }
 
   getAccountNodes(): Observable<Accountnode[]> {
@@ -36,34 +51,6 @@ export class CrmaccountserviceService {
       catchError(this.handleError)
     );
   }
-
-  private DoGetAccountNodes(): (x: Accountnode[]) => void {
-    return data => console.log('The following account nodes were returned: ' + JSON.stringify(data));
-  }
-
-  getPrimaryAddress(): Observable<Iaddress> {
-    const addressUrl = '../../../assets/api/addresses.json';
-
-    return this.http.get<Iaddress[]>(addressUrl).pipe(
-      map(data => {return this.doGetPrimaryAddress(data);
-      }),
-      catchError(this.handleError)
-    );
-  }
-  doGetPrimaryAddress(data: Iaddress[]): Iaddress {
-   const primaryAddress = data.find(x => x.isPrimary);
-   console.log('The following primary address was returned: ' + JSON.stringify(data)
-  );
-   return primaryAddress;
-  }
-
-  addAddress(address: Address): Promise<Address> {
-    return new Promise((resolver, reject) => {
-      resolver(address);
-    });
-
-  }
-
   private handleError(err: HttpErrorResponse) {
     let errorMessage = '';
     if (err.error instanceof ErrorEvent) {
@@ -77,16 +64,43 @@ export class CrmaccountserviceService {
     return throwError(errorMessage);
   }
 
-getAllAddresses(): Observable<Address[]> {
-  const accountUrl = '../../../assets/api/addresses.json';
-
-  return this.http.get<Address[]>(accountUrl).pipe(
-    tap(data =>
+  private DoGetAccountNodes(): (x: Accountnode[]) => void {
+    return data =>
       console.log(
-        'The following addresses were returned: ' + JSON.stringify(data)
-      )
-    ),
-    catchError(this.handleError)
-  );
-}
+        'The following account nodes were returned: ' + JSON.stringify(data)
+      );
+  }
+
+  getAccount(): Observable<Iaccount> {
+    const accountUrl = '../../../assets/api/account.json';
+    return this.http.get<Iaccount>(accountUrl).pipe(
+      tap(this.DoGetAccount()),
+      catchError(this.handleError)
+    );
+  }
+
+  private DoGetAccount(): (x: Iaccount) => void {
+    return data =>
+      console.log(
+        'The following account was returned: ' + JSON.stringify(data)
+      );
+  }
+
+  getPrimaryAddress(): Observable<Iaddress> {
+    const addressUrl = '../../../assets/api/addresses.json';
+
+    return this.http.get<Iaddress[]>(addressUrl).pipe(
+      map(data => {
+        return this.doGetPrimaryAddress(data);
+      }),
+      catchError(this.handleError)
+    );
+  }
+  doGetPrimaryAddress(data: Iaddress[]): Iaddress {
+    const primaryAddress = data.find(x => x.isPrimary);
+    console.log(
+      'The following primary address was returned: ' + JSON.stringify(data)
+    );
+    return primaryAddress;
+  }
 }

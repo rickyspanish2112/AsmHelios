@@ -27,9 +27,9 @@ export class NewAddressDialogComponent implements OnInit {
 
   save(): void {
 
-    this.crmAccountManagementService.addAddress(this.address).then(address => {
+/*       this.crmAccountManagementService.addAddress(this.address).then(address => {
       this.dialogRef.close(this.address);
-    });
+    }); */
   }
 
   dismiss(): void {

@@ -31,13 +31,12 @@ export class MainContentComponent implements OnInit {
     );
   }
 
- private getPrimaryAddress() {
+  private getPrimaryAddress() {
     this.crmService.getPrimaryAddress().subscribe(
       data => {
-       this.address = data;
+        this.address = data;
       },
       error => (this.errorMessage = <any>error)
     );
   }
-
 }
