@@ -112,4 +112,15 @@ export class CrmaccountserviceService {
     );
     return primaryAddress;
   }
+
+  addAddress(address: Address): Promise<Address> {
+    return new Promise((resolver, reject) => {
+      address.id = this.dataStore.addresses.length + 1; // Simulates setting new ID
+      this.dataStore.addresses.push(address);
+      this._addresses.next(Object.assign({}, this.dataStore).addresses);
+      resolver(address);
+    });
+  }
+
+
 }

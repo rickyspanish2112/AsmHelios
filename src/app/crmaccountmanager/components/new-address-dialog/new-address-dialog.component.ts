@@ -18,7 +18,11 @@ export class NewAddressDialogComponent implements OnInit {
   address: Address;
 
   validStreet1 = new FormControl('', [Validators.required]);
+  validStreet2 = new FormControl();
+  validStreet3 = new FormControl();
+  validCounty = new FormControl();
   validPostCode = new FormControl('', [Validators.required]);
+  validCountry = new FormControl('', [Validators.required]);
   validDescription = new FormControl('', [Validators.required]);
 
   ngOnInit() {
@@ -27,9 +31,9 @@ export class NewAddressDialogComponent implements OnInit {
 
   save(): void {
 
-/*       this.crmAccountManagementService.addAddress(this.address).then(address => {
+    this.crmAccountManagementService.addAddress(this.address).then(address => {
       this.dialogRef.close(this.address);
-    }); */
+    });
   }
 
   dismiss(): void {

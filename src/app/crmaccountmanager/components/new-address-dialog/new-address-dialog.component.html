@@ -5,7 +5,7 @@
     <mat-form-field>
         <mat-error *ngIf="validStreet1.invalid">{{getDescriptionErrorMessage()}}</mat-error>
       <mat-select placeholder="Description"  [formControl]="validDescription" required>
-        <mat-option value="description"  >Primary</mat-option>
+        <mat-option value="description" >Primary</mat-option>
         <mat-option value="description">Delivery</mat-option>
         <mat-option value="description">Collection</mat-option>
         <mat-option value="description">Invoice</mat-option>
@@ -41,6 +41,7 @@
     matInput
     type="text"
     placeholder="Street 2"
+    [formControl]="validStreet2"
     [(ngModel)]="address.street2"
   />
   <button
@@ -60,6 +61,7 @@
     matInput
     type="text"
     placeholder="Street 3"
+    [formControl]="validStreet3"
     [(ngModel)]="address.street3"
   />
   <button
@@ -79,6 +81,7 @@
     matInput
     type="text"
     placeholder="County"
+    [formControl]="validCounty"
     [(ngModel)]="address.county"
   />
   <button
@@ -120,6 +123,7 @@
     matInput
     type="text"
     placeholder="Country"
+    [formControl]="validCountry"
     [(ngModel)]="address.country"
   />
   <button
