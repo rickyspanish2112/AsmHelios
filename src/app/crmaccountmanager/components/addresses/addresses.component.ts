@@ -36,7 +36,7 @@ export class AddressesComponent implements OnInit {
 
   ngOnInit(): void {
     this.addresses = this.crmService.addresses;
-    this.crmService.GetAllAddresses();
+    this.crmService.getAllAddresses();
 
     this.addresses.subscribe(data => {
       this.dataSource.data = data;

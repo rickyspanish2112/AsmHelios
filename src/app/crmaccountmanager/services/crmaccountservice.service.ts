@@ -8,6 +8,7 @@ import { catchError, tap, map } from 'rxjs/operators';
 import { Iaccount } from '../contracts/iaccount';
 import { Iaddress } from '../contracts/iaddress';
 import { Address } from '../models/address';
+import { AddressDescription } from '../models/addressdescription';
 
 @Injectable({
   providedIn: 'root'
@@ -33,7 +34,7 @@ export class CrmaccountserviceService {
     this._addresses = new BehaviorSubject<Address[]>([]);
   }
 
-  GetAllAddresses() {
+  getAllAddresses() {
     const addressUrl = '../../../assets/api/addresses.json';
 
     return this.http.get<Address[]>(addressUrl).subscribe(
@@ -50,6 +51,21 @@ export class CrmaccountserviceService {
         console.log('Failed to fetch addresses');
       }
     );
+  }
+
+getAddressDescriptions(): Observable<AddressDescription[]> {
+  const addressDescriptionUrl = '../../../assets/api/addressdescription.json';
+
+  return this.http.get<AddressDescription[]>(addressDescriptionUrl).pipe(
+    tap(this.DoGetAccountDescriptions()),
+    catchError(this.handleError)
+  );
+}
+  DoGetAccountDescriptions(): (x: AddressDescription[]) => void {
+    return data =>
+      console.log(
+        'The following account descriptions were returned: ' + JSON.stringify(data)
+      );
   }
 
   getAccountNodes(): Observable<Accountnode[]> {

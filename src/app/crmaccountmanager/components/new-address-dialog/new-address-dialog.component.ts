@@ -3,6 +3,7 @@ import { MatDialogRef } from '@angular/material';
 import { Address } from '../../models/address';
 import { FormControl, Validators  } from '@angular/forms';
 import { CrmaccountserviceService } from '../../services/crmaccountservice.service';
+import { AddressDescription } from '../../models/addressdescription';
 
 @Component({
   selector: 'app-new-address-dialog',
@@ -16,6 +17,9 @@ export class NewAddressDialogComponent implements OnInit {
     private crmAccountManagementService: CrmaccountserviceService) {}
 
   address: Address;
+  addressDescriptions: AddressDescription[] = [];
+  errorMessage: string;
+  selectedValue: string;
 
   validStreet1 = new FormControl('', [Validators.required]);
   validStreet2 = new FormControl();
@@ -27,10 +31,13 @@ export class NewAddressDialogComponent implements OnInit {
 
   ngOnInit() {
     this.address = new Address();
+    this.crmAccountManagementService.getAddressDescriptions().subscribe( data => {
+      this.addressDescriptions = data;
+    },
+    error => (this.errorMessage = <any>error));
   }
 
   save(): void {
-
     this.crmAccountManagementService.addAddress(this.address).then(address => {
       this.dialogRef.close(this.address);
     });

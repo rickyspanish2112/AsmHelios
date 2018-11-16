@@ -1,5 +1,5 @@
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
-import { MatDialog } from '@angular/material';
+import { MatDialog, MatSnackBar, MatSnackBarRef, SimpleSnackBar } from '@angular/material';
 
 import { NewAccountDialogComponent } from '../new-account-dialog/new-account-dialog.component';
 import { NewAddressDialogComponent } from '../new-address-dialog/new-address-dialog.component';
@@ -14,7 +14,9 @@ export class ToolbarComponent implements OnInit {
   @Output()
   toggleSidenav = new EventEmitter<void>();
 
-  constructor(private matDialog: MatDialog) {}
+  constructor(
+    private matDialog: MatDialog,
+    private snackBar: MatSnackBar) {}
 
   ngOnInit() {}
 
@@ -31,13 +33,21 @@ export class ToolbarComponent implements OnInit {
 
 dialogRef.afterClosed().subscribe(result => {
   console.log('The dialog was closed', result);
-});
 
+  if (result) {
+    this.openSnackBar('Address Added', '').onAction().subscribe();
+  }});
   }
 
   openAddContactDialog(): void {
     this.matDialog.open(NewContactDialogComponent, {
       width: '450px'
+    });
+  }
+
+  openSnackBar(message: string, action: string): MatSnackBarRef<SimpleSnackBar> {
+   return this.snackBar.open(message, action, {
+      duration: 5000,
     });
   }
 
