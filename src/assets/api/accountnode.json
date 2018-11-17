@@ -16,7 +16,7 @@
     "id": 5,
     "node": "Contacts",
     "avatar":"group",
-    "nodeRouteIdentifier": "AddressesComponent3"
+    "nodeRouteIdentifier": "contacts"
   },
   {
     "id": 8,

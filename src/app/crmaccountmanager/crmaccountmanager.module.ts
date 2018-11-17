@@ -18,6 +18,7 @@ import { AddressesComponent } from './components/addresses/addresses.component';
 import { NewAccountDialogComponent } from './components/new-account-dialog/new-account-dialog.component';
 import { NewAddressDialogComponent } from './components/new-address-dialog/new-address-dialog.component';
 import { NewContactDialogComponent } from './components/new-contact-dialog/new-contact-dialog.component';
+import { ContactsComponent } from './components/contacts/contacts.component';
 
 const routes: Routes = [
   {
@@ -26,6 +27,7 @@ const routes: Routes = [
     [
       { path: 'account', component: MainContentComponent },
       { path: 'addresses', component: AddressesComponent },
+      { path: 'contacts', component: ContactsComponent },
       { path: '', component: MainContentComponent },
     ]
   },
@@ -56,7 +58,8 @@ const routes: Routes = [
     AddressesComponent,
     NewAccountDialogComponent,
     NewAddressDialogComponent,
-    NewContactDialogComponent
+    NewContactDialogComponent,
+    ContactsComponent
   ],
   entryComponents: [
     NewAccountDialogComponent,
