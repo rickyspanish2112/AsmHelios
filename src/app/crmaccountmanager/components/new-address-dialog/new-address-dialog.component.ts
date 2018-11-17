@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialogRef } from '@angular/material';
 import { Address } from '../../models/address';
-import { FormControl, Validators  } from '@angular/forms';
+import { FormControl, Validators } from '@angular/forms';
 import { CrmaccountserviceService } from '../../services/crmaccountservice.service';
 import { AddressDescription } from '../../models/addressdescription';
 
@@ -11,10 +11,10 @@ import { AddressDescription } from '../../models/addressdescription';
   styleUrls: ['./new-address-dialog.component.scss']
 })
 export class NewAddressDialogComponent implements OnInit {
-
   constructor(
     private dialogRef: MatDialogRef<NewAddressDialogComponent>,
-    private crmAccountManagementService: CrmaccountserviceService) {}
+    private crmAccountManagementService: CrmaccountserviceService
+  ) {}
 
   address: Address;
   addressDescriptions: AddressDescription[] = [];
@@ -31,10 +31,12 @@ export class NewAddressDialogComponent implements OnInit {
 
   ngOnInit() {
     this.address = new Address();
-    this.crmAccountManagementService.getAddressDescriptions().subscribe( data => {
-      this.addressDescriptions = data;
-    },
-    error => (this.errorMessage = <any>error));
+    this.crmAccountManagementService.getAddressDescriptions().subscribe(
+      data => {
+        this.addressDescriptions = data;
+      },
+      error => (this.errorMessage = <any>error)
+    );
   }
 
   save(): void {
@@ -48,15 +50,20 @@ export class NewAddressDialogComponent implements OnInit {
   }
 
   getStreet1ErrorMessage() {
-    return this.validStreet1.hasError('required') ? 'You must enter a value' : '';
+    return this.validStreet1.hasError('required')
+      ? 'You must enter a value'
+      : '';
   }
 
   getPostCodeErrorMessage() {
-    return this.validPostCode.hasError('required') ? 'You must enter a value' : '';
+    return this.validPostCode.hasError('required')
+      ? 'You must enter a value'
+      : '';
   }
 
   getDescriptionErrorMessage() {
-    return this.validDescription.hasError('required') ? 'You must enter a value' : '';
+    return this.validDescription.hasError('required')
+      ? 'You must enter a value'
+      : '';
   }
-
 }
