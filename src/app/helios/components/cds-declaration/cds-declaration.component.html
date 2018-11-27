@@ -1,17 +1,41 @@
-<mat-accordion>
+
+<div class = "wrapper">
+  <div>
+  <mat-accordion>
   <mat-expansion-panel (opened)="panelOpenState = true"
                        (closed)="panelOpenState = false">
-    <mat-expansion-panel-header>
+    <mat-expansion-panel-header [collapsedHeight]="customCollapsedHeight" [expandedHeight]="customExpandedHeight">
       <mat-panel-title>
-      Declaration Types
+     <h4> Declaration Type</h4>
       </mat-panel-title>
     </mat-expansion-panel-header>
-    <mat-form-field>
-      <mat-select placeholder="Declaration Types" class="my-select-panel-class">
-        <mat-option *ngFor="let declarationType of declarationTypes" [value]="declarationType.value">
-          {{declarationType.value}}
-        </mat-option>
-      </mat-select>
-    </mat-form-field>
-  </mat-expansion-panel>
+    <div class=field>
+        <label class= "field-label">Decln Type [01]:
+            <mat-form-field>
+                <mat-select class="my-select-panel-class">
+                  <mat-option *ngFor="let declarationType of declarationTypes" [value]="declarationType.value">
+                    {{declarationType.value}}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+        </label>
+        <label class= "field-label">Trader Ref [07]:
+            <mat-form-field>
+                <input
+                  matInput
+                  type="text" />
+                  <button
+                  mat-button
+                  matSuffix
+                  mat-icon-button
+                  aria-label="Clear"
+                >
+                  <mat-icon>close</mat-icon>
+                </button>
+                </mat-form-field>
+        </label>
+    </div>
+   </mat-expansion-panel>
 </mat-accordion>
+</div>
+</div>

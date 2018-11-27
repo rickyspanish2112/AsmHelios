@@ -1,7 +1,39 @@
+
+.wrapper{
+  margin-top: 30px;
+  margin-left: 30px;
+}
+
+/* contains a label and a value */
+.field {
+  display: flex;
+  margin: 0 0 10px 0;
+}
+
+.field-label{
+  width:40%;
+}
+
+.field-value{
+  width: 60%;
+  float: right;
+
+}
+
+.field label + label /*label after another label */
+{
+  margin-left:30px;
+}
+
+
 .my-select-panel-class {
   width: 400px;
   max-width: 400px;
   font-size: 12px;
+  border: #673ab7 2px solid;
+  border-radius: 5px;
+  height: 10px;
+  padding: 9px;
 }
 
 ::ng-deep .mat-select-panel mat-option.mat-option {
@@ -18,4 +50,12 @@
 
 ::ng-deep .mat-form-field-underline {
   display: none;
+}
+
+.mat-expansion-panel-header.mat-expanded {
+  background: #673ab7;
+}
+
+.mat-input-flex.mat-form-field{
+  border: 1px solid black;
 }

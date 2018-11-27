@@ -13,6 +13,9 @@ export class CdsDeclarationComponent implements OnInit {
   errorMessage: string;
   declarationTypes: Declarationtypes[] = [];
 
+  customCollapsedHeight = '40px';
+  customExpandedHeight = '40px';
+
   constructor(private declarationService: DeclarationService) { }
 
   ngOnInit() {
