@@ -6,13 +6,12 @@ import {NgxMaskModule} from 'ngx-mask';
 
 import { AppComponent } from './app.component';
 import { Routes, RouterModule } from '@angular/router';
-import { CrmaccountmanagerComponent } from './crmaccountmanager/crmaccountmanager.component';
 
 const routes: Routes = [
-  { path: 'crmaccountmanager',
-   loadChildren: './crmaccountmanager/crmaccountmanager.module#CrmaccountmanagerModule' }, // Lazy loading of account manager module
+  { path: 'helios',
+   loadChildren: './helios/helios.module#HeliosModule' }, // Lazy loading of account manager module
   { path: 'demo', loadChildren: './demo/demo.module#DemoModule' }, // Lazy loading of demo module
-  { path: '**', redirectTo: 'crmaccountmanager' }
+  { path: '**', redirectTo: 'helios' }
 ];
 
 @NgModule({

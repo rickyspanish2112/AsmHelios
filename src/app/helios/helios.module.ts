@@ -8,7 +8,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Routes, RouterModule } from '@angular/router';
 import {NgxMaskModule} from 'ngx-mask';
 
-import { CrmaccountmanagerComponent } from './crmaccountmanager.component';
+import { HeliosComponent } from './helios.component';
 import { ToolbarComponent } from './components/toolbar/toolbar.component';
 import { MainContentComponent } from './components/main-content/main-content.component';
 import { SidenavComponent } from './components/sidenav/sidenav.component';
@@ -19,15 +19,18 @@ import { NewAccountDialogComponent } from './components/new-account-dialog/new-a
 import { NewAddressDialogComponent } from './components/new-address-dialog/new-address-dialog.component';
 import { NewContactDialogComponent } from './components/new-contact-dialog/new-contact-dialog.component';
 import { ContactsComponent } from './components/contacts/contacts.component';
+import { CdsDeclarationComponent } from './components/cds-declaration/cds-declaration.component';
+import { DeclarationService } from './services/declaration.service';
 
 const routes: Routes = [
   {
-    path: '', component: CrmaccountmanagerComponent,
+    path: '', component: HeliosComponent,
     children:
     [
       { path: 'account', component: MainContentComponent },
       { path: 'addresses', component: AddressesComponent },
       { path: 'contacts', component: ContactsComponent },
+      { path: 'declarations', component: CdsDeclarationComponent },
       { path: '', component: MainContentComponent },
     ]
   },
@@ -49,9 +52,10 @@ const routes: Routes = [
   ],
   providers: [
     CrmaccountserviceService,
+    DeclarationService,
     {provide: MAT_DATE_LOCALE, useValue: 'en-GB'}
   ],
-  declarations: [CrmaccountmanagerComponent,
+  declarations: [HeliosComponent,
     ToolbarComponent,
     MainContentComponent,
     SidenavComponent,
@@ -59,7 +63,8 @@ const routes: Routes = [
     NewAccountDialogComponent,
     NewAddressDialogComponent,
     NewContactDialogComponent,
-    ContactsComponent
+    ContactsComponent,
+    CdsDeclarationComponent
   ],
   entryComponents: [
     NewAccountDialogComponent,
@@ -67,4 +72,4 @@ const routes: Routes = [
     NewContactDialogComponent
   ]
 })
-export class CrmaccountmanagerModule { }
+export class HeliosModule { }

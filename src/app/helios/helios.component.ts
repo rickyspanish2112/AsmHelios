@@ -1,13 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-crmaccountmanager',
+  selector: 'app-helios',
   template: `
   <app-sidenav></app-sidenav>
   `,
   styles: []
 })
-export class CrmaccountmanagerComponent implements OnInit {
+export class HeliosComponent implements OnInit {
 
   constructor() { }
 

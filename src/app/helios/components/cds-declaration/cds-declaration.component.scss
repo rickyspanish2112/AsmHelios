@@ -1,0 +1,21 @@
+.my-select-panel-class {
+  width: 400px;
+  max-width: 400px;
+  font-size: 12px;
+}
+
+::ng-deep .mat-select-panel mat-option.mat-option {
+  height: unset;
+}
+
+::ng-deep .mat-option-text.mat-option-text {
+  word-wrap: break-word;
+  white-space: pre-line;
+  padding: 5px;
+  margin: 2px;
+  line-height: 15px;
+}
+
+::ng-deep .mat-form-field-underline {
+  display: none;
+}

@@ -42,5 +42,11 @@
     "node": "Job Costing",
     "avatar":"account_balance",
     "nodeRouteIdentifier": "AddressesComponent"
+  },
+  {
+    "id": 6,
+    "node": "Declarations",
+    "avatar":"flight_land",
+    "nodeRouteIdentifier": "declarations"
   }
 ]
