@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DeclarationService } from '../../services/declaration.service';
 import { Declarationtypes } from '../../models/declarationtypes';
+import { Badges } from '../../models/badges';
 
 @Component({
   selector: 'app-cds-declaration',
@@ -12,6 +13,7 @@ export class CdsDeclarationComponent implements OnInit {
   panelOpenState = false;
   errorMessage: string;
   declarationTypes: Declarationtypes[] = [];
+  badges: Badges[] = [];
 
   customCollapsedHeight = '40px';
   customExpandedHeight = '40px';
@@ -23,6 +25,13 @@ export class CdsDeclarationComponent implements OnInit {
     this.declarationService.getAllDeclarationTypes().subscribe(
       data => {
         this.declarationTypes = data;
+      },
+      error => (this.errorMessage = <any>error)
+    );
+
+    this.declarationService.getAllBadges().subscribe(
+      data => {
+        this.badges = data;
       },
       error => (this.errorMessage = <any>error)
     );

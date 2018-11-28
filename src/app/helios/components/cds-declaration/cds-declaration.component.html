@@ -9,7 +9,7 @@
      <h4> Declaration Type</h4>
       </mat-panel-title>
     </mat-expansion-panel-header>
-    <div class=field>
+    <div class="field">
         <label class= "field-label">Decln Type [01]:
             <mat-form-field>
                 <mat-select class="my-select-panel-class">
@@ -19,8 +19,26 @@
                 </mat-select>
               </mat-form-field>
         </label>
+        <label class= "field-label">Badge Codes:
+          <mat-form-field>
+              <mat-select class="my-select-panel-class">
+                <mat-option *ngFor="let badge of badges" [value]="badge.code">
+                  {{badge.code}} -  {{badge.name}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+      </label>
     </div>
-   </mat-expansion-panel>
+    <div>
+      <label class= "field-label">Trader Reference [07]:</label>
+      <mat-form-field class="form-field">
+        <input matInput type="text" [(ngModel)]="value">
+        <button mat-button *ngIf="value" matSuffix mat-icon-button aria-label="Clear" (click)="value=''">
+          <mat-icon>close</mat-icon>
+        </button>
+      </mat-form-field>
+    </div>
+    </mat-expansion-panel>
 </mat-accordion>
-</div>
+</div> <!--End wrapper-->
 </div>
