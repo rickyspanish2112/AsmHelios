@@ -1,5 +1,4 @@
-
-.wrapper{
+.wrapper {
   margin-top: 30px;
   margin-left: 30px;
 }
@@ -10,24 +9,33 @@
   margin: 0 0 0 0;
 }
 
-.field-label{
-  width:40%;
+.field-label {
+  width: 35%;
 }
 
-.field-value{
+.field-value {
   width: 60%;
   float: right;
-
 }
 
 .field label + label /*label after another label */
-{
-  margin-left:30px;
+ {
+  margin-left: 30px;
 }
 
-.my-select-panel-class {
+.declaration-type-combobox {
   width: 400px;
   max-width: 400px;
+  font-size: 12px;
+  border: #673ab7 2px solid;
+  border-radius: 5px;
+  height: 10px;
+  padding: 9px;
+}
+
+.badge-codes-combobox {
+  width: 200px;
+  max-width: 200px;
   font-size: 12px;
   border: #673ab7 2px solid;
   border-radius: 5px;
@@ -65,6 +73,15 @@
   background: #673ab7;
 }
 
-.mat-input-flex.mat-form-field{
-  border: 1px solid black;
+input {
+  border: none;
+  background: none;
+  padding: 0;
+  text-align: left;
+  font-size: 12px;
+  border: #673ab7 2px solid;
+  border-radius: 5px;
+  height: 9px;
+  padding: 9px;
+  width: 200px;
 }
