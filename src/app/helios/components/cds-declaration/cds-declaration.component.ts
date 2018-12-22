@@ -17,6 +17,7 @@ export class CdsDeclarationComponent implements OnInit {
 
   customCollapsedHeight = '40px';
   customExpandedHeight = '40px';
+  TraderReferenceValue = '';
 
   constructor(private declarationService: DeclarationService) { }
 

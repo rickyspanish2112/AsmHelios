@@ -1,44 +1,30 @@
-/* @media all and (max-width: 800px) {
-  .flex-container {
-      justify-content: flex-start;
-  }
-} */
-
 .flex-container {
   display: flex;
-  flex-direction: row;
-  //border: black solid 3px;
-  border-radius: 10px;
-  padding-left: 15px;
-  //background-color: DodgerBlue;
-}
-
-/* .flex-container {
-  display: flex;
   background-color: DodgerBlue;
-  height: 100px;
-} */
+  flex-wrap: wrap;
+}
 
 .flex-container > div {
- // background-color: #f1f1f1;
-   margin: 10px;
- // padding: 20px;
+  background-color: #f1f1f1;
+  margin: 10px;
+  padding: 20px;
   font-size: 30px;
-  height: 304px;
 }
 
-/* .flex-item{
-  width: 10%;
-  background: tomato;
-  //height: 450px;
-  //overflow-y: auto;
-  margin-right: 5PX;
-} */
+.flex-item-declarationType {
+  overflow-y: auto;
+  margin-right: 5px;
+  flex-grow: 1;
+}
 
+.flex-item-badgeCode {
+  overflow-y: auto;
+  margin-right: 5px;
+  flex-grow: 5;
+}
 
-.wrapper {
-  margin-top: 30px;
-  margin-left: 30px;
+.flex-item-traderReference {
+  flex-grow: 1;
 }
 
 /* contains a label and a value */
@@ -52,7 +38,7 @@
 }
 
 .field-value {
- width: 60%;
+  width: 60%;
   float: right;
 }
 
@@ -61,14 +47,31 @@
   margin-left: 30px;
 }
 
+.labelAlignment {
+  padding-top: 8px;
+  font: 400 14px/20px Roboto, Helvetica Neue, sans-serif;
+}
+
 .declaration-type-combobox {
-  width: 400px;
-  max-width: 400px;
+  width: 350px;
+  max-width: 350px;
   font-size: 12px;
   border: #673ab7 2px solid;
   border-radius: 5px;
   height: 15px;
   padding: 9px;
+}
+
+@media all and (max-width: 800px) {
+  .declaration-type-combobox {
+    width: 190px;
+    max-width: 190px;
+    font-size: 12px;
+    border: #673ab7 2px solid;
+    border-radius: 5px;
+    height: 15px;
+    padding: 9px;
+  }
 }
 
 .badge-codes-combobox {
@@ -81,18 +84,41 @@
   padding: 9px;
 }
 
-.form-field {
-  width: 380px;
-  max-width: 380px;
-  border: #673ab7 2px solid;
-  border-radius: 5px;
-  font-size: 12px;
-  height: 20px;
-  max-height: 20px;
+@media all and (max-width: 800px) {
+  .badge-codes-combobox {
+    width: 200px;
+    max-width:200px;
+    font-size: 12px;
+    border: #673ab7 2px solid;
+    border-radius: 5px;
+    height: 15px;
+    padding: 9px;
+  }
 }
 
-::ng-deep .mat-select-panel mat-option.mat-option {
-  height: unset;
+.trader-reference-inputBox{
+  border: none;
+  background: none;
+  padding: 0;
+  text-align: left;
+  font-size: 12px;
+  border: #673ab7 2px solid;
+  border-radius: 5px;
+  height: 15px;
+  padding: 9px;
+  width: 350px;
+}
+
+@media all and (max-width: 800px) {
+  .trader-reference-inputBox{
+    width: 140px;
+    max-width: 140px;
+    font-size: 12px;
+    border: #673ab7 2px solid;
+    border-radius: 5px;
+    height: 15px;
+    padding: 9px;
+  }
 }
 
 ::ng-deep .mat-option-text.mat-option-text {
@@ -103,15 +129,7 @@
   line-height: 15px;
 }
 
-::ng-deep .mat-form-field-underline {
-  display: none;
-}
-
-.mat-expansion-panel-header.mat-expanded {
-  background: #673ab7;
-}
-
-input {
+/* input {
   border: none;
   background: none;
   padding: 0;
@@ -121,10 +139,14 @@ input {
   border-radius: 5px;
   height: 15px;
   padding: 9px;
+} */
+
+::ng-deep .mat-form-field-underline {
+  display: none;
 }
 
-.labelAlignment{
-  padding-top:8px;
-  font: 400 14px/20px Roboto,Helvetica Neue,sans-serif;
-
+.example-form-field {
+  width: 200px;
 }
+
+
