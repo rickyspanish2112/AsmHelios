@@ -94,12 +94,52 @@
                      Importer [02]
                     </mat-panel-title>
                     <mat-panel-description>
-                      Enter Importer here
+                        Account Name: {{ImorterAccountName}}
                       <mat-icon>account_circle</mat-icon>
                     </mat-panel-description>
                   </mat-expansion-panel-header>
-                  <input matInput placeholder="Short Code" class="party-inputBox">
-                  <input matInput placeholder="Account Name" class="party-inputBox party-inputBox-margin">
+
+                  <div class="flex-container">
+                      <div>  <label class="labelAlignment">
+                          Short Code:
+                          <input
+                            matInput
+                            type="text"
+                            [(ngModel)]="ImporterShortCode"
+                            class="party-inputBox"
+                          />
+                          <button
+                            mat-button
+                            *ngIf="ImporterShortCode"
+                            matSuffix
+                            mat-icon-button
+                            aria-label="Clear"
+                            (click)="ImporterShortCode = ''"
+                          >
+                            <mat-icon>close</mat-icon>
+                          </button>
+                        </label></div>
+                      <div> <label class="labelAlignment">
+                          Name:
+                          <input
+                            matInput
+                            type="text"
+                            [(ngModel)]="ImorterAccountName"
+                            class="party-inputBox party-inputBox-margin"
+                          />
+                          <button
+                            mat-button
+                            *ngIf="ImorterAccountName"
+                            matSuffix
+                            mat-icon-button
+                            aria-label="Clear"
+                            (click)="ImorterAccountName = ''"
+                          >
+                            <mat-icon>close</mat-icon>
+                          </button>
+                        </label></div>
+                    </div>
+
                   <mat-action-row>
                   </mat-action-row>
                 </mat-expansion-panel>
@@ -113,12 +153,51 @@
                    Exporter [08]
                   </mat-panel-title>
                   <mat-panel-description>
-                    Enter Exporter here
+                      Account Name: {{ExporterAccountName}}
                     <mat-icon>account_circle</mat-icon>
                   </mat-panel-description>
                 </mat-expansion-panel-header>
-                <input matInput placeholder="Short Code" class="party-inputBox">
-                <input matInput placeholder="Account Name" class="party-inputBox party-inputBox-margin">
+                <div class="flex-container">
+                    <div>  <label class="labelAlignment">
+                        Short Code:
+                        <input
+                          matInput
+                          type="text"
+                          [(ngModel)]="ImporterShortCode"
+                          class="party-inputBox"
+                        />
+                        <button
+                          mat-button
+                          *ngIf="ImporterShortCode"
+                          matSuffix
+                          mat-icon-button
+                          aria-label="Clear"
+                          (click)="ImporterShortCode = ''"
+                        >
+                          <mat-icon>close</mat-icon>
+                        </button>
+                      </label></div>
+                    <div> <label class="labelAlignment">
+                        Name:
+                        <input
+                          matInput
+                          type="text"
+                          [(ngModel)]="ExporterAccountName"
+                          class="party-inputBox party-inputBox-margin"
+                        />
+                        <button
+                          mat-button
+                          *ngIf="ExporterAccountName"
+                          matSuffix
+                          mat-icon-button
+                          aria-label="Clear"
+                          (click)="ExporterAccountName = ''"
+                        >
+                          <mat-icon>close</mat-icon>
+                        </button>
+                      </label></div>
+                  </div>
+
                 <mat-action-row>
                   </mat-action-row>
               </mat-expansion-panel>
