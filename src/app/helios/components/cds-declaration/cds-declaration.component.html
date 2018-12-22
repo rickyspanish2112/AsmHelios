@@ -1,10 +1,9 @@
 <!-- <div *ngIf="!account"><mat-spinner></mat-spinner></div>
 <div *ngIf="account"> -->
 
+<!--Start of matt accordion for declarion types-->
 <div class="declaration-type">
   <mat-accordion>
-    <!--Start of matt accordion-->
-
     <mat-expansion-panel
       (opened)="panelOpenState = true"
       (closed)="panelOpenState = false"
@@ -15,49 +14,119 @@
       >
         <mat-panel-title> <h4>Declaration Type</h4> </mat-panel-title>
       </mat-expansion-panel-header>
-
       <div class="flex-container">
-
-         <!--Start of  declaration type controls-->
-
+        <!--Start of  declaration type controls-->
         <div class="flex-item-declarationType">
-            <label class="field-label labelAlignment">
-                Decln Type [01]:
-                <mat-select class="declaration-type-combobox">
-                  <mat-option
-                    *ngFor="let declarationType of declarationTypes"
-                    [value]="declarationType.value"
-                  >
-                    {{ declarationType.value }}
-                  </mat-option>
-                </mat-select>
-              </label>
+          <label class="field-label labelAlignment">
+            Decln Type [01]:
+            <mat-select class="declaration-type-combobox">
+              <mat-option
+                *ngFor="let declarationType of declarationTypes"
+                [value]="declarationType.value"
+              >
+                {{ declarationType.value }}
+              </mat-option>
+            </mat-select>
+          </label>
         </div>
         <div class="flex-item-badgeCode">
-            <label class="field-label labelAlignment">
-                Badge Codes:
-                <mat-select class="badge-codes-combobox">
-                  <mat-option *ngFor="let badge of badges" [value]="badge.code">
-                    {{ badge.code }} - {{ badge.name }}
-                  </mat-option>
-                </mat-select>
-              </label>
+          <label class="field-label labelAlignment">
+            Badge Codes:
+            <mat-select class="badge-codes-combobox">
+              <mat-option *ngFor="let badge of badges" [value]="badge.code">
+                {{ badge.code }} - {{ badge.name }}
+              </mat-option>
+            </mat-select>
+          </label>
         </div>
       </div>
       <div class="flex-container">
-          <div class="flex-item-traderReference">
-              <label class="field-label labelAlignment">
-                  Trader Reference:
-                  <input matInput type="text" [(ngModel)]="TraderReferenceValue" class="trader-reference-inputBox">
-                  <button mat-button *ngIf="TraderReferenceValue" matSuffix mat-icon-button aria-label="Clear" (click)="TraderReferenceValue=''">
-                    <mat-icon>close</mat-icon>
-                  </button>
-                </label>
-          </div>
+        <div class="flex-item-traderReference">
+          <label class="field-label labelAlignment">
+            Trader Reference [07]:
+            <input
+              matInput
+              type="text"
+              [(ngModel)]="TraderReferenceValue"
+              class="trader-reference-inputBox"
+            />
+            <button
+              mat-button
+              *ngIf="TraderReferenceValue"
+              matSuffix
+              mat-icon-button
+              aria-label="Clear"
+              (click)="TraderReferenceValue = ''"
+            >
+              <mat-icon>close</mat-icon>
+            </button>
+          </label>
         </div>
-
-       <!--End of  declaration type controls-->
-
+      </div>
+      <!--End of  declaration type controls-->
     </mat-expansion-panel>
   </mat-accordion>
 </div>
+<!--End of matt accordion for declarion types-->
+
+<!--Start of matt accordion for parties-->
+<div class="declaration-parties">
+  <mat-accordion>
+    <mat-expansion-panel
+      (opened)="panelOpenState = true"
+      (closed)="panelOpenState = false"
+    >
+      <mat-expansion-panel-header
+        [collapsedHeight]="customCollapsedHeight"
+        [expandedHeight]="customExpandedHeight"
+      >
+        <mat-panel-title> <h4>Declaration Parties</h4> </mat-panel-title>
+      </mat-expansion-panel-header>
+      <div class="flex-container">
+        <!--Start of  declaration party controls-->
+
+        <div class="flex-item-declarationParyImporter">
+
+            <mat-accordion class="party-headers-align">
+                <mat-expansion-panel class="partyExpansionPanel">
+                  <mat-expansion-panel-header >
+                    <mat-panel-title>
+                     Importer [02]
+                    </mat-panel-title>
+                    <mat-panel-description>
+                      Enter Importer here
+                      <mat-icon>account_circle</mat-icon>
+                    </mat-panel-description>
+                  </mat-expansion-panel-header>
+                  <input matInput placeholder="Short Code" class="party-inputBox">
+                  <input matInput placeholder="Account Name" class="party-inputBox party-inputBox-margin">
+                  <mat-action-row>
+                  </mat-action-row>
+                </mat-expansion-panel>
+              </mat-accordion>
+       </div>
+       <div class="flex-item-declarationParyExporter">
+          <mat-accordion class="party-headers-align">
+              <mat-expansion-panel class="partyExpansionPanel">
+                <mat-expansion-panel-header>
+                  <mat-panel-title>
+                   Exporter [08]
+                  </mat-panel-title>
+                  <mat-panel-description>
+                    Enter Exporter here
+                    <mat-icon>account_circle</mat-icon>
+                  </mat-panel-description>
+                </mat-expansion-panel-header>
+                <input matInput placeholder="Short Code" class="party-inputBox">
+                <input matInput placeholder="Account Name" class="party-inputBox party-inputBox-margin">
+                <mat-action-row>
+                  </mat-action-row>
+              </mat-expansion-panel>
+            </mat-accordion>
+         </div>
+      </div>
+      <!--End of  declaration type controls-->
+    </mat-expansion-panel>
+  </mat-accordion>
+</div>
+<!--End of matt accordion for parties-->

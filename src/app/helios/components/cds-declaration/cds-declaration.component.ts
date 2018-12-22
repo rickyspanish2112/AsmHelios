@@ -18,6 +18,7 @@ export class CdsDeclarationComponent implements OnInit {
   customCollapsedHeight = '40px';
   customExpandedHeight = '40px';
   TraderReferenceValue = '';
+  step = 0;
 
   constructor(private declarationService: DeclarationService) { }
 
@@ -37,4 +38,17 @@ export class CdsDeclarationComponent implements OnInit {
       error => (this.errorMessage = <any>error)
     );
   }
+
+  setStep(index: number) {
+    this.step = index;
+  }
+
+  nextStep() {
+    this.step++;
+  }
+
+  prevStep() {
+    this.step--;
+  }
+
 }
