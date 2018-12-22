@@ -1,3 +1,7 @@
+.wrapper{
+margin: 0 0 0 0;
+}
+
 .flex-container {
   display: flex;
   background-color: DodgerBlue;
@@ -9,6 +13,16 @@
   margin: 10px;
   padding: 20px;
   font-size: 30px;
+}
+
+.controls-wrapper {
+border: DodgerBlue 2px solid;
+border-radius: 8px;
+}
+
+.declaration-parties-wrapper{
+  border: DodgerBlue 2px solid;
+border-radius: 8px;
 }
 
 .flex-item-declarationType {
