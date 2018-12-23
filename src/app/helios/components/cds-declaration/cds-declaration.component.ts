@@ -22,6 +22,10 @@ export class CdsDeclarationComponent implements OnInit {
   ImorterAccountName = '';
   ExporterShortCode = '';
   ExporterAccountName = '';
+  DeclarantAccountName = '';
+  DeclarantShortCode = '';
+  RepresentitiveShortCode = '';
+  RepresentitiveAccountName = '';
   step = 0;
 
 

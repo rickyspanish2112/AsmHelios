@@ -88,75 +88,13 @@
 
         <div class="controls-wrapper">
           <div class="flex-container">
+
             <!--Start of  declaration party controls-->
-
-            <div class="flex-item-declarationParyImporter">
+            <div class="flex-item-declarationPary-left">
               <mat-accordion class="party-headers-align">
                 <mat-expansion-panel class="partyExpansionPanel">
                   <mat-expansion-panel-header>
-                    <mat-panel-title> Importer [02] </mat-panel-title>
-                    <mat-panel-description>
-                      Account Name: {{ ImorterAccountName }}
-                      <mat-icon>account_circle</mat-icon>
-                    </mat-panel-description>
-                  </mat-expansion-panel-header>
-
-                  <div class="controls-wrapper">
-                    <div class="flex-container">
-                      <div>
-                        <label class="labelAlignment">
-                          Short Code:
-                          <input
-                            matInput
-                            type="text"
-                            [(ngModel)]="ImporterShortCode"
-                            class="party-inputBox"
-                          />
-                          <button
-                            mat-button
-                            *ngIf="ImporterShortCode"
-                            matSuffix
-                            mat-icon-button
-                            aria-label="Clear"
-                            (click)="ImporterShortCode = ''"
-                          >
-                            <mat-icon>close</mat-icon>
-                          </button>
-                        </label>
-                      </div>
-                      <div>
-                        <label class="labelAlignment">
-                          Name:
-                          <input
-                            matInput
-                            type="text"
-                            [(ngModel)]="ImorterAccountName"
-                            class="party-inputBox party-inputBox-margin"
-                          />
-                          <button
-                            mat-button
-                            *ngIf="ImorterAccountName"
-                            matSuffix
-                            mat-icon-button
-                            aria-label="Clear"
-                            (click)="ImorterAccountName = ''"
-                          >
-                            <mat-icon>close</mat-icon>
-                          </button>
-                        </label>
-                      </div>
-                    </div>
-                  </div>
-
-                  <mat-action-row> </mat-action-row>
-                </mat-expansion-panel>
-              </mat-accordion>
-            </div>
-            <div class="flex-item-declarationParyExporter">
-              <mat-accordion class="party-headers-align">
-                <mat-expansion-panel class="partyExpansionPanel">
-                  <mat-expansion-panel-header>
-                    <mat-panel-title> Exporter [08] </mat-panel-title>
+                    <mat-panel-title> Exporter [02] </mat-panel-title>
                     <mat-panel-description>
                       Account Name: {{ ExporterAccountName }}
                       <mat-icon>account_circle</mat-icon>
@@ -165,35 +103,35 @@
 
                   <div class="controls-wrapper">
                     <div class="flex-container">
-                      <div>
+                      <div class="flex-item-party-controls-left">
                         <label class="labelAlignment">
                           Short Code:
                           <input
                             matInput
                             type="text"
-                            [(ngModel)]="ImporterShortCode"
+                            [(ngModel)]="ExporterShortCode"
                             class="party-inputBox"
                           />
                           <button
                             mat-button
-                            *ngIf="ImporterShortCode"
+                            *ngIf="ExporterShortCode"
                             matSuffix
                             mat-icon-button
                             aria-label="Clear"
-                            (click)="ImporterShortCode = ''"
+                            (click)="ExporterShortCode = ''"
                           >
                             <mat-icon>close</mat-icon>
                           </button>
                         </label>
                       </div>
-                      <div>
+                      <div class="flex-item-party-controls-right">
                         <label class="labelAlignment">
                           Name:
                           <input
                             matInput
                             type="text"
                             [(ngModel)]="ExporterAccountName"
-                            class="party-inputBox party-inputBox-margin"
+                            class="party-inputBox party-inputBox-margin party-inputBox-width"
                           />
                           <button
                             mat-button
@@ -209,11 +147,199 @@
                       </div>
                     </div>
                   </div>
+                  <mat-action-row> </mat-action-row>
+                </mat-expansion-panel>
+              </mat-accordion>
+            </div>
+            <div class="flex-item-declarationPary-right">
+              <mat-accordion class="party-headers-align">
+                <mat-expansion-panel class="partyExpansionPanel">
+                  <mat-expansion-panel-header>
+                    <mat-panel-title> Importer [08] </mat-panel-title>
+                    <mat-panel-description>
+                      Account Name: {{ ImorterAccountName }}
+                      <mat-icon>account_circle</mat-icon>
+                    </mat-panel-description>
+                  </mat-expansion-panel-header>
+
+                  <div class="controls-wrapper">
+                    <div class="flex-container">
+                      <div class="flex-item-party-controls-left">
+                        <label class="labelAlignment">
+                          Short Code:
+                          <input
+                            matInput
+                            type="text"
+                            [(ngModel)]="ImporterShortCode"
+                            class="party-inputBox"
+                          />
+                          <button
+                            mat-button
+                            *ngIf="ImporterShortCode"
+                            matSuffix
+                            mat-icon-button
+                            aria-label="Clear"
+                            (click)="ImporterShortCode = ''"
+                          >
+                            <mat-icon>close</mat-icon>
+                          </button>
+                        </label>
+                      </div>
+                      <div class="flex-item-party-controls-right">
+                        <label class="labelAlignment">
+                          Name:
+                          <input
+                            matInput
+                            type="text"
+                            [(ngModel)]="ImorterAccountName"
+                            class="party-inputBox party-inputBox-margin party-inputBox-width"
+                          />
+                          <button
+                            mat-button
+                            *ngIf="ImorterAccountName"
+                            matSuffix
+                            mat-icon-button
+                            aria-label="Clear"
+                            (click)="ImporterAccountName = ''"
+                          >
+                            <mat-icon>close</mat-icon>
+                          </button>
+                        </label>
+                      </div>
+                    </div>
+                  </div>
 
                   <mat-action-row> </mat-action-row>
                 </mat-expansion-panel>
               </mat-accordion>
             </div>
+
+            <div class="flex-item-declarationPary-left">
+              <mat-accordion class="party-headers-align">
+                <mat-expansion-panel class="partyExpansionPanel">
+                  <mat-expansion-panel-header>
+                    <mat-panel-title> Declarant [14] </mat-panel-title>
+                    <mat-panel-description>
+                      Account Name: {{ DeclarantAccountName }}
+                      <mat-icon>account_circle</mat-icon>
+                    </mat-panel-description>
+                  </mat-expansion-panel-header>
+
+                  <div class="controls-wrapper">
+                    <div class="flex-container">
+                      <div class="flex-item-party-controls-left">
+                        <label class="labelAlignment">
+                          Short Code:
+                          <input
+                            matInput
+                            type="text"
+                            [(ngModel)]="DeclarantShortCode"
+                            class="party-inputBox"
+                          />
+                          <button
+                            mat-button
+                            *ngIf="DeclarantShortCode"
+                            matSuffix
+                            mat-icon-button
+                            aria-label="Clear"
+                            (click)="DeclarantShortCode = ''"
+                          >
+                            <mat-icon>close</mat-icon>
+                          </button>
+                        </label>
+                      </div>
+                      <div class="flex-item-party-controls-right">
+                        <label class="labelAlignment">
+                          Name:
+                          <input
+                            matInput
+                            type="text"
+                            [(ngModel)]="DeclarantAccountName"
+                            class="party-inputBox party-inputBox-margin party-inputBox-width"
+                          />
+                          <button
+                            mat-button
+                            *ngIf="DeclarantAccountName"
+                            matSuffix
+                            mat-icon-button
+                            aria-label="Clear"
+                            (click)="DeclarantAccountName = ''"
+                          >
+                            <mat-icon>close</mat-icon>
+                          </button>
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                  <mat-action-row> </mat-action-row>
+                </mat-expansion-panel>
+              </mat-accordion>
+            </div>
+            <div class="flex-item-declarationPary-right">
+              <mat-accordion class="party-headers-align">
+                <mat-expansion-panel class="partyExpansionPanel">
+                  <mat-expansion-panel-header>
+                    <mat-panel-title> Represent. [14] </mat-panel-title>
+                    <mat-panel-description>
+                      Account Name: {{ RepresentitiveAccountName }}
+                      <mat-icon>account_circle</mat-icon>
+                    </mat-panel-description>
+                  </mat-expansion-panel-header>
+
+                  <div class="controls-wrapper">
+                    <div class="flex-container">
+                      <div class="flex-item-party-controls-left">
+                        <label class="labelAlignment">
+                          Short Code:
+                          <input
+                            matInput
+                            type="text"
+                            [(ngModel)]="RepresentitiveShortCode"
+                            class="party-inputBox"
+                          />
+                          <button
+                            mat-button
+                            *ngIf="RepresentitiveShortCode"
+                            matSuffix
+                            mat-icon-button
+                            aria-label="Clear"
+                            (click)="RepresentitiveShortCode = ''"
+                          >
+                            <mat-icon>close</mat-icon>
+                          </button>
+                        </label>
+                      </div>
+                      <div class="flex-item-party-controls-right">
+                        <label class="labelAlignment">
+                          Name:
+                          <input
+                            matInput
+                            type="text"
+                            [(ngModel)]="RepresentitiveAccountName"
+                            class="party-inputBox party-inputBox-margin party-inputBox-width"
+                          />
+                          <button
+                            mat-button
+                            *ngIf="RepresentitiveAccountName"
+                            matSuffix
+                            mat-icon-button
+                            aria-label="Clear"
+                            (click)="RepresentitiveAccountName = ''"
+                          >
+                            <mat-icon>close</mat-icon>
+                          </button>
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+
+                  <mat-action-row> </mat-action-row>
+                </mat-expansion-panel>
+              </mat-accordion>
+            </div>
+
+
+
           </div>
         </div>
 
