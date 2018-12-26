@@ -40,13 +40,37 @@ border-radius: 8px;
 .flex-item-declarationPary-left {
   overflow-y: auto;
   margin-right: 5px;
-  flex-grow: 0;
+  //flex-grow: 0;
+  width: 480px;
+  flex: 0 0 480;
+}
+
+@media all and (max-width: 800px) {
+  .flex-item-declarationPary-left {
+    overflow-y: auto;
+    margin-right: 5px;
+    //flex-grow: 0;
+    width: 350px;
+    flex: 0 0 350px;
+  }
 }
 
 .flex-item-declarationPary-right {
   overflow-y: auto;
   margin-right: 5px;
-  flex-grow: 2;
+  //flex-grow: 2;
+  width: 480px;
+  flex: 0 0 480px;
+}
+
+@media all and (max-width: 800px) {
+  .flex-item-declarationPary-right {
+    overflow-y: auto;
+    margin-right: 5px;
+    //flex-grow: 0;
+    width: 350px;
+    flex: 0 0 350px;
+  }
 }
 
 .flex-item-traderReference {
