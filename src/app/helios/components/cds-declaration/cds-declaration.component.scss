@@ -41,8 +41,8 @@ border-radius: 8px;
   overflow-y: auto;
   margin-right: 5px;
   //flex-grow: 0;
-  width: 480px;
-  flex: 0 0 480;
+  width: 400px;
+  flex: 0 0 400;
 }
 
 @media all and (max-width: 800px) {
@@ -59,8 +59,8 @@ border-radius: 8px;
   overflow-y: auto;
   margin-right: 5px;
   //flex-grow: 2;
-  width: 480px;
-  flex: 0 0 480px;
+  width: 400px;
+  flex: 0 0 400px;
 }
 
 @media all and (max-width: 800px) {
@@ -78,11 +78,11 @@ border-radius: 8px;
 }
 
 .flex-item-party-controls-left{
-  flex-grow: 1;
+ // flex-grow: 1;
 }
 
 .flex-item-party-controls-right{
-  flex-grow: 3;
+//  flex-grow: 3;
 }
 
 .labelAlignment {
