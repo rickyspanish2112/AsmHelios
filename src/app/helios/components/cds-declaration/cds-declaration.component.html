@@ -155,9 +155,72 @@
               <mat-accordion class="party-headers-align">
                 <mat-expansion-panel class="partyExpansionPanel">
                   <mat-expansion-panel-header>
+                    <mat-panel-title> Seller [02] </mat-panel-title>
+                    <mat-panel-description>
+                      Account Name: {{ SellerAccountName }}
+                      <mat-icon>account_circle</mat-icon>
+                    </mat-panel-description>
+                  </mat-expansion-panel-header>
+
+                  <div class="controls-wrapper">
+                    <div class="flex-container">
+                      <div class="flex-item-party-controls-left">
+                        <label class="labelAlignment">
+                          Short Code:
+                          <input
+                            matInput
+                            type="text"
+                            [(ngModel)]="SellerShortCode"
+                            class="party-inputBox"
+                          />
+                          <button
+                            mat-button
+                            *ngIf="SellerShortCode"
+                            matSuffix
+                            mat-icon-button
+                            aria-label="Clear"
+                            (click)="SellerShortCode = ''"
+                          >
+                            <mat-icon>close</mat-icon>
+                          </button>
+                        </label>
+                      </div>
+                      <div class="flex-item-party-controls-right">
+                        <label class="labelAlignment">
+                          Name:
+                          <input
+                            matInput
+                            type="text"
+                            [(ngModel)]="SellerAccountName"
+                            class="party-inputBox party-inputBox-margin party-inputBox-width"
+                          />
+                          <button
+                            mat-button
+                            *ngIf="SellerAccountName"
+                            matSuffix
+                            mat-icon-button
+                            aria-label="Clear"
+                            (click)="SellerAccountName = ''"
+                          >
+                            <mat-icon>close</mat-icon>
+                          </button>
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+
+                  <mat-action-row> </mat-action-row>
+                </mat-expansion-panel>
+              </mat-accordion>
+            </div>
+
+            <div class="flex-item-declarationPary-left">
+              <mat-accordion class="party-headers-align">
+                <mat-expansion-panel class="partyExpansionPanel">
+                  <mat-expansion-panel-header>
                     <mat-panel-title> Importer [08] </mat-panel-title>
                     <mat-panel-description>
-                      Account Name: {{ ImorterAccountName }}
+                      Account Name: {{ ImporterAccountName }}
                       <mat-icon>account_circle</mat-icon>
                     </mat-panel-description>
                   </mat-expansion-panel-header>
@@ -191,16 +254,77 @@
                           <input
                             matInput
                             type="text"
-                            [(ngModel)]="ImorterAccountName"
+                            [(ngModel)]="ImporterAccountName"
                             class="party-inputBox party-inputBox-margin party-inputBox-width"
                           />
                           <button
                             mat-button
-                            *ngIf="ImorterAccountName"
+                            *ngIf="ImporterAccountName"
                             matSuffix
                             mat-icon-button
                             aria-label="Clear"
                             (click)="ImporterAccountName = ''"
+                          >
+                            <mat-icon>close</mat-icon>
+                          </button>
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                  <mat-action-row> </mat-action-row>
+                </mat-expansion-panel>
+              </mat-accordion>
+            </div>
+            <div class="flex-item-declarationPary-right">
+              <mat-accordion class="party-headers-align">
+                <mat-expansion-panel class="partyExpansionPanel">
+                  <mat-expansion-panel-header>
+                    <mat-panel-title> Buyer [08] </mat-panel-title>
+                    <mat-panel-description>
+                      Account Name: {{ BuyerAccountName }}
+                      <mat-icon>account_circle</mat-icon>
+                    </mat-panel-description>
+                  </mat-expansion-panel-header>
+
+                  <div class="controls-wrapper">
+                    <div class="flex-container">
+                      <div class="flex-item-party-controls-left">
+                        <label class="labelAlignment">
+                          Short Code:
+                          <input
+                            matInput
+                            type="text"
+                            [(ngModel)]="BuyerShortCode"
+                            class="party-inputBox"
+                          />
+                          <button
+                            mat-button
+                            *ngIf="BuyerShortCode"
+                            matSuffix
+                            mat-icon-button
+                            aria-label="Clear"
+                            (click)="BuyerShortCode = ''"
+                          >
+                            <mat-icon>close</mat-icon>
+                          </button>
+                        </label>
+                      </div>
+                      <div class="flex-item-party-controls-right">
+                        <label class="labelAlignment">
+                          Name:
+                          <input
+                            matInput
+                            type="text"
+                            [(ngModel)]="BuyerAccountName"
+                            class="party-inputBox party-inputBox-margin party-inputBox-width"
+                          />
+                          <button
+                            mat-button
+                            *ngIf="BuyerAccountName"
+                            matSuffix
+                            mat-icon-button
+                            aria-label="Clear"
+                            (click)="BuyerAccountName = ''"
                           >
                             <mat-icon>close</mat-icon>
                           </button>
@@ -214,13 +338,13 @@
               </mat-accordion>
             </div>
 
-            <div class="flex-item-declarationPary-left">
+            <div class="flex-item-declarationPary-right">
               <mat-accordion class="party-headers-align">
                 <mat-expansion-panel class="partyExpansionPanel">
                   <mat-expansion-panel-header>
                     <mat-panel-title> Declarant [14] </mat-panel-title>
                     <mat-panel-description>
-                      Account Name: {{ DeclarantAccountName }}
+                      Account Name: {{ RepresentitiveAccountName }}
                       <mat-icon>account_circle</mat-icon>
                     </mat-panel-description>
                   </mat-expansion-panel-header>
@@ -233,16 +357,16 @@
                           <input
                             matInput
                             type="text"
-                            [(ngModel)]="DeclarantShortCode"
+                            [(ngModel)]="RepresentitiveShortCode"
                             class="party-inputBox"
                           />
                           <button
                             mat-button
-                            *ngIf="DeclarantShortCode"
+                            *ngIf="RepresentitiveShortCode"
                             matSuffix
                             mat-icon-button
                             aria-label="Clear"
-                            (click)="DeclarantShortCode = ''"
+                            (click)="RepresentitiveShortCode = ''"
                           >
                             <mat-icon>close</mat-icon>
                           </button>
@@ -254,16 +378,16 @@
                           <input
                             matInput
                             type="text"
-                            [(ngModel)]="DeclarantAccountName"
+                            [(ngModel)]="RepresentitiveAccountName"
                             class="party-inputBox party-inputBox-margin party-inputBox-width"
                           />
                           <button
                             mat-button
-                            *ngIf="DeclarantAccountName"
+                            *ngIf="RepresentitiveAccountName"
                             matSuffix
                             mat-icon-button
                             aria-label="Clear"
-                            (click)="DeclarantAccountName = ''"
+                            (click)="RepresentitiveAccountName = ''"
                           >
                             <mat-icon>close</mat-icon>
                           </button>
@@ -271,6 +395,7 @@
                       </div>
                     </div>
                   </div>
+
                   <mat-action-row> </mat-action-row>
                 </mat-expansion-panel>
               </mat-accordion>
@@ -337,6 +462,8 @@
                 </mat-expansion-panel>
               </mat-accordion>
             </div>
+
+
 
 
 
