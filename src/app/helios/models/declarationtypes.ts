@@ -1,6 +1,6 @@
-import { Ideclarationtypes } from '../contracts/ideclarationtypes';
+import { Ideclarationtype } from '../contracts/ideclarationtypes';
 
-export class Declarationtypes implements Ideclarationtypes {
+export class Declarationtype implements Ideclarationtype {
   id: number;  value: string;
 
 }

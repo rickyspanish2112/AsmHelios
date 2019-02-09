@@ -2,8 +2,8 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Observable, throwError, BehaviorSubject } from 'rxjs';
 import { catchError, tap, map } from 'rxjs/operators';
-import { Declarationtypes } from '../models/declarationtypes';
-import { Badges } from '../models/badges';
+import { Declarationtype } from '../models/declarationtypes';
+import { Badge } from '../models/badges';
 
 @Injectable({
   providedIn: 'root'
@@ -15,7 +15,7 @@ export class DeclarationService {
   getAllDeclarationTypes() {
     const declarationTypesUrl = '../../../assets/api/declarationtypes.json';
 
-    return this.http.get<Declarationtypes[]>(declarationTypesUrl).pipe(
+    return this.http.get<Declarationtype[]>(declarationTypesUrl).pipe(
       tap(this.DoGetDeclarationTypes()),
       catchError(this.handleError)
     );
@@ -24,20 +24,20 @@ export class DeclarationService {
   getAllBadges() {
     const badgesUrl = '../../../assets/api/badges.json';
 
-    return this.http.get<Badges[]>(badgesUrl).pipe(
+    return this.http.get<Badge[]>(badgesUrl).pipe(
       tap(this.DoGetBadges()),
       catchError(this.handleError)
     );
   }
 
-  private DoGetBadges(): (x: Badges[]) => void {
+  private DoGetBadges(): (x: Badge[]) => void {
     return data =>
       console.log(
         'The following declaration types were returned: ' + JSON.stringify(data)
       );
   }
 
-  private DoGetDeclarationTypes(): (x: Declarationtypes[]) => void {
+  private DoGetDeclarationTypes(): (x: Declarationtype[]) => void {
     return data =>
       console.log(
         'The following declaration types were returned: ' + JSON.stringify(data)

@@ -1,4 +1,4 @@
-export interface Ideclarationtypes {
+export interface Ideclarationtype {
   id: number;
   value: string;
 }

@@ -1,6 +1,6 @@
-import { Ibadges } from '../contracts/ibadges';
+import { Ibadge } from '../contracts/ibadges';
 
-export class Badges implements Ibadges {
+export class Badge implements Ibadge {
   id: number;
   code: string;
   name: string;

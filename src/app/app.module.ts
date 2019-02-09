@@ -9,6 +9,9 @@ import { Routes, RouterModule } from '@angular/router';
 
 import {StoreModule} from '@ngrx/store';
 
+import { environment } from 'src/environments/environment';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+
 const routes: Routes = [
   { path: 'helios',
    loadChildren: './helios/helios.module#HeliosModule' }, // Lazy loading of account manager module
@@ -25,7 +28,12 @@ const routes: Routes = [
     BrowserAnimationsModule,
     RouterModule.forRoot(routes),
     NgxMaskModule.forRoot(),
-    StoreModule.forRoot({})
+    StoreModule.forRoot({}),
+    StoreDevtoolsModule.instrument({
+      name: 'APM Demo App DevTools',
+      maxAge: 25,
+      logOnly: environment.production,
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]

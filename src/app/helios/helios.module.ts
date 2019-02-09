@@ -24,6 +24,8 @@ import { DeclarationService } from './services/declaration.service';
 
 import {StoreModule} from '@ngrx/store';
 import { reducer } from './state/declaration-type.reducer';
+import {StoreDevtoolsModule} from '@ngrx/store-devtools';
+import { environment } from 'src/environments/environment';
 
 const routes: Routes = [
   {

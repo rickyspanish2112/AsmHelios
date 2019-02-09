@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { DeclarationService } from '../../services/declaration.service';
-import { Declarationtypes } from '../../models/declarationtypes';
-import { Badges } from '../../models/badges';
+import { Declarationtype } from '../../models/declarationtypes';
+import { Badge } from '../../models/badges';
+
+import * as fromDeclaraionType from '../../state/declaration-type.reducer';
+import * as fromDeclarationTypeActions from '../../state/declaration-type.actions';
 
 
 /* NgRx */
@@ -16,8 +19,8 @@ export class CdsDeclarationComponent implements OnInit {
 
   // panelOpenState = false;
   errorMessage: string;
-  declarationTypes: Declarationtypes[] = [];
-  badges: Badges[] = [];
+  declarationTypes: Declarationtype[] = [];
+  badges: Badge[] = [];
   displayTypes: boolean;
   panelOpenState: false;
 
@@ -36,16 +39,12 @@ export class CdsDeclarationComponent implements OnInit {
 
 
 
-  constructor(private declarationService: DeclarationService, private store: Store<any>) { }
+  constructor(private declarationService: DeclarationService, private store: Store<fromDeclaraionType.State>) { }
 
   ngOnInit() {
 
-   this.store.pipe(select('declarationType')).subscribe(
-     declarationTypes => {
-       if (declarationTypes) {
-         this.displayTypes = declarationTypes.showDeclarationTypes;
-       }
-     }
+   this.store.pipe(select(fromDeclaraionType.getDisplayDeclarationType)).subscribe(
+    displayDeclarationTypes => this.displayTypes = displayDeclarationTypes
    );
 
     this.declarationService.getAllDeclarationTypes().subscribe(
@@ -65,11 +64,6 @@ export class CdsDeclarationComponent implements OnInit {
 
   checkChanged(value: boolean): void {
     console.log('About to dispatch toggle display declaration types');
-    this.store.dispatch({
-      type: 'TOGGLE_DISPLAY_DECLARATION_TYPES',
-      payload: value
-    });
+    this.store.dispatch(new fromDeclarationTypeActions.ToggleDeclarationTypes(value));
   }
-
-
 }
