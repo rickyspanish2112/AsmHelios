@@ -28,13 +28,18 @@ export class CdsDeclarationComponent implements OnInit {
   customExpandedHeight = '40px';
   TraderReferenceValue = '';
   ImporterShortCode = '';
-  ImorterAccountName = '';
+  ImporterAccountName = '';
   ExporterShortCode = '';
   ExporterAccountName = '';
   DeclarantAccountName = '';
   DeclarantShortCode = '';
   RepresentitiveShortCode = '';
   RepresentitiveAccountName = '';
+  SellerShortCode = '';
+  SellerAccountName = '';
+  BuyerShortCode = '';
+  BuyerAccountName = '';
+
   step = 0;
 
 
