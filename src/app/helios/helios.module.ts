@@ -22,6 +22,9 @@ import { ContactsComponent } from './components/contacts/contacts.component';
 import { CdsDeclarationComponent } from './components/cds-declaration/cds-declaration.component';
 import { DeclarationService } from './services/declaration.service';
 
+import {StoreModule} from '@ngrx/store';
+import { reducer } from './state/declaration-type.reducer';
+
 const routes: Routes = [
   {
     path: '', component: HeliosComponent,
@@ -48,7 +51,8 @@ const routes: Routes = [
     NgxMaskModule,
     RouterModule.forChild(routes),
     NgxMaskModule.forChild(),
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    StoreModule.forFeature('declarationType', reducer)
   ],
   providers: [
     CrmaccountserviceService,

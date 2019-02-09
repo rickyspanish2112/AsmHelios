@@ -3,6 +3,10 @@ import { DeclarationService } from '../../services/declaration.service';
 import { Declarationtypes } from '../../models/declarationtypes';
 import { Badges } from '../../models/badges';
 
+
+/* NgRx */
+import { Store, select } from '@ngrx/store';
+
 @Component({
   selector: 'app-cds-declaration',
   templateUrl: './cds-declaration.component.html',
@@ -10,10 +14,12 @@ import { Badges } from '../../models/badges';
 })
 export class CdsDeclarationComponent implements OnInit {
 
-  panelOpenState = false;
+  // panelOpenState = false;
   errorMessage: string;
   declarationTypes: Declarationtypes[] = [];
   badges: Badges[] = [];
+  displayTypes: boolean;
+  panelOpenState: false;
 
   customCollapsedHeight = '40px';
   customExpandedHeight = '40px';
@@ -30,9 +36,17 @@ export class CdsDeclarationComponent implements OnInit {
 
 
 
-  constructor(private declarationService: DeclarationService) { }
+  constructor(private declarationService: DeclarationService, private store: Store<any>) { }
 
   ngOnInit() {
+
+   this.store.pipe(select('declarationType')).subscribe(
+     declarationTypes => {
+       if (declarationTypes) {
+         this.displayTypes = declarationTypes.showDeclarationTypes;
+       }
+     }
+   );
 
     this.declarationService.getAllDeclarationTypes().subscribe(
       data => {
@@ -49,16 +63,13 @@ export class CdsDeclarationComponent implements OnInit {
     );
   }
 
-  setStep(index: number) {
-    this.step = index;
+  checkChanged(value: boolean): void {
+    console.log('About to dispatch toggle display declaration types');
+    this.store.dispatch({
+      type: 'TOGGLE_DISPLAY_DECLARATION_TYPES',
+      payload: value
+    });
   }
 
-  nextStep() {
-    this.step++;
-  }
-
-  prevStep() {
-    this.step--;
-  }
 
 }
