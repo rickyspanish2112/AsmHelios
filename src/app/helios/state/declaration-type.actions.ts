@@ -7,10 +7,11 @@ export enum DeclarationTypesActionTypes {
   ClearCurrentBadge = '[Declaration Types] Clear Current Declaration Badge',
   LoadBadge = '[Declaration Types] Load Badge',
   LoadBadgeSuccess = '[Declaration Types] Load Badge Success',
-  LoadBagdeFail = '[Declaration Types] Load Badge Fail'
+  LoadBagdeFail = '[Declaration Types] Load Badge Fail',
+  SetTraderReference = '[Declaration Types] Set Trader Reference',
 }
 
-// Action Creators
+//#region Action Creators
 export class ToggleDeclarationTypes implements Action {
   readonly type = DeclarationTypesActionTypes.ToggleDeclaraionTypes;
 
@@ -29,7 +30,16 @@ export class ClearCurrentBadge implements Action {
   constructor() {}
 }
 
+export class SetTraderReference implements Action {
+  readonly type = DeclarationTypesActionTypes.SetTraderReference;
+
+  constructor(public payload: string) {}
+}
+
+//#endregion
+
 export type DeclarationTypeActions =
   | ToggleDeclarationTypes
   | SetCurrentBadge
-  | ClearCurrentBadge;
+  | ClearCurrentBadge
+  | SetTraderReference;

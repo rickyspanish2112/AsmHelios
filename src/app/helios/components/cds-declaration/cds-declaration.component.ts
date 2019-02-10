@@ -1,13 +1,13 @@
 import { Component, OnInit } from '@angular/core';
+
 import { DeclarationService } from '../../services/declaration.service';
 import { Declarationtype } from '../../models/declarationtypes';
 import { Badge } from '../../models/badges';
 
-import * as fromDeclaraionType from '../../state/declaration-type.reducer';
-import * as fromDeclarationTypeActions from '../../state/declaration-type.actions';
-
 /* NgRx */
 import { Store, select } from '@ngrx/store';
+import * as fromDeclaraionType from '../../state/declaration-type.reducer';
+import * as fromDeclarationTypeActions from '../../state/declaration-type.actions';
 
 @Component({
   selector: 'app-cds-declaration',
@@ -15,7 +15,9 @@ import { Store, select } from '@ngrx/store';
   styleUrls: ['./cds-declaration.component.scss']
 })
 export class CdsDeclarationComponent implements OnInit {
-  declarationTypes: Declarationtype[] = [];
+ //#region Properties
+
+ declarationTypes: Declarationtype[] = [];
   badges: Badge[] = [];
   selectedBadge: Badge;
 
@@ -25,7 +27,7 @@ export class CdsDeclarationComponent implements OnInit {
 
   customCollapsedHeight = '40px';
   customExpandedHeight = '40px';
-  TraderReferenceValue = '';
+  traderReferenceValue = '';
   ImporterShortCode = '';
   ImporterAccountName = '';
   ExporterShortCode = '';
@@ -39,11 +41,16 @@ export class CdsDeclarationComponent implements OnInit {
   BuyerShortCode = '';
   BuyerAccountName = '';
 
+  //#endregion
+
+  //#region Constructor
   constructor(
     private declarationService: DeclarationService,
     private store: Store<fromDeclaraionType.State>
   ) {}
+  //#endregion
 
+  //#region OnInit
   ngOnInit() {
     this.store
       .pipe(select(fromDeclaraionType.getCurrentBadge))
@@ -55,6 +62,12 @@ export class CdsDeclarationComponent implements OnInit {
       .pipe(select(fromDeclaraionType.getDisplayDeclarationType))
       .subscribe(
         displayDeclarationTypes => (this.displayTypes = displayDeclarationTypes)
+      );
+
+    this.store
+      .pipe(select(fromDeclaraionType.getTraderReference))
+      .subscribe(
+        traderReference => (this.traderReferenceValue = traderReference)
       );
 
     this.declarationService.getAllDeclarationTypes().subscribe(
@@ -72,10 +85,41 @@ export class CdsDeclarationComponent implements OnInit {
     );
   }
 
+  //#endregion
+
+  //#region Methods
   checkChanged(value: boolean): void {
     console.log('About to dispatch toggle Display Declaration Types');
     this.store.dispatch(
       new fromDeclarationTypeActions.ToggleDeclarationTypes(value)
+    );
+  }
+
+  onSelecedBadgeCodeChange(event) {
+    if (!event.isUserInput) {
+      return null;
+    }
+
+    this.selectedBadge = this.badges.find(b => b.code === event.source.value);
+
+    if (this.selectedBadge.code === 'undefined') {
+      console.log('No badge found matching code: ' + event.source.value);
+      return;
+    }
+
+    console.log('Found badge matching code: ' + this.selectedBadge.code);
+
+    console.log('About to dispatch data to SetCurrentBadge action:');
+    this.store.dispatch(
+      new fromDeclarationTypeActions.SetCurrentBadge(this.selectedBadge)
+    );
+  }
+
+  onBlurTraderReferenceChange(traderReference: string) {
+    console.log('About to dispatch Set Trader Reference: ' + traderReference);
+
+    this.store.dispatch(
+      new fromDeclarationTypeActions.SetTraderReference(traderReference)
     );
   }
 
@@ -89,26 +133,5 @@ export class CdsDeclarationComponent implements OnInit {
     );
     this.selectedBadge = selectedBadge;
   }
-
-  onChange(event) {
-    if (event.isUserInput) {
-      console.log(
-        'The following badge has been selected: ' + event.source.value
-      );
-
-      this.selectedBadge = this.badges.find(b => b.code === event.source.value);
-
-      if (this.selectedBadge.code === 'undefined') {
-        console.log('No badge found matching code: ' + event.source.value);
-        return;
-      }
-
-      console.log('Found badge matching code: ' + this.selectedBadge.code);
-
-      console.log('About to dispatch data to SetCurrentBadge action:');
-      this.store.dispatch(
-        new fromDeclarationTypeActions.SetCurrentBadge(this.selectedBadge)
-      );
-    }
-  }
+  //#endregion
 }

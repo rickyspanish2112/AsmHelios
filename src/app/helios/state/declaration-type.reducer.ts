@@ -14,6 +14,7 @@ export interface DeclarationTypeState {
   badges: Declarationtype[];
   currentDeclarationType: Declarationtype;
   declarationTypes: Declarationtype[];
+  traderTreference: string;
   error: string;
 }
 
@@ -24,6 +25,7 @@ const initialState: DeclarationTypeState = {
   badges: [],
   currentDeclarationType: null,
   declarationTypes: [],
+  traderTreference: '',
   error: ''
 };
 
@@ -54,6 +56,11 @@ export const getDeclarationTypes = createSelector(
   state => state.declarationTypes
 );
 
+export const getTraderReference = createSelector(
+  getDeclarationTypeState,
+  state => state.traderTreference
+);
+
 export function reducer(state = initialState,  action: DeclarationTypeActions): DeclarationTypeState {
 
  switch (action.type) {
@@ -73,6 +80,12 @@ export function reducer(state = initialState,  action: DeclarationTypeActions): 
       return {
         ...state,
         currentBadge: null
+      };
+
+      case DeclarationTypesActionTypes.SetTraderReference:
+      return{
+        ...state,
+        traderTreference: action.payload
       };
 
       default:
