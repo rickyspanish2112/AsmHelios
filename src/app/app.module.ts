@@ -30,7 +30,7 @@ const routes: Routes = [
     NgxMaskModule.forRoot(),
     StoreModule.forRoot({}),
     StoreDevtoolsModule.instrument({
-      name: 'APM Demo App DevTools',
+      name: 'ASM Helios App - DevTools',
       maxAge: 25,
       logOnly: environment.production,
     })
