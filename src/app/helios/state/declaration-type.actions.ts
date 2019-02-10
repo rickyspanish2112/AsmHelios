@@ -3,8 +3,8 @@ import { Badge } from '../models/badges';
 
 export enum DeclarationTypesActionTypes {
   ToggleDeclaraionTypes = '[Declaration Types] Toggle Declaration Types',
-  SetCurrentBadge = '[Declaration Types] Set Current Declaration Type',
-  ClearCurrentBadge = '[Declaration Types] Clear Current Declaration Type',
+  SetCurrentBadge = '[Declaration Types] Set Current Badge',
+  ClearCurrentBadge = '[Declaration Types] Clear Current Declaration Badge',
   LoadBadge = '[Declaration Types] Load Badge',
   LoadBadgeSuccess = '[Declaration Types] Load Badge Success',
   LoadBagdeFail = '[Declaration Types] Load Badge Fail'

@@ -3,7 +3,6 @@ import * as fromRoot from '../../state/app.state';
 import { Badge } from '../models/badges';
 import { createFeatureSelector, createSelector } from '@ngrx/store';
 import { DeclarationTypeActions, DeclarationTypesActionTypes } from './declaration-type.actions';
-import { NewAccountDialogComponent } from '../components/new-account-dialog/new-account-dialog.component';
 
 export interface State extends fromRoot.State {
   declarationType: DeclarationTypeState;
