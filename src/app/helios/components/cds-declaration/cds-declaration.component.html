@@ -43,11 +43,11 @@
             <div class="flex-item-badgeCode">
               <label class="field-label labelAlignment">
                 Badge Codes:
-                <mat-select class="badge-codes-combobox" >
+                <mat-select class="badge-codes-combobox" [value]="selectedBadge?.code" >
                   <mat-option (onSelectionChange)="onSelecedBadgeCodeChange($event)"
                     *ngFor="let badge of badges"
-                    [value]="badge.code">
-                    {{ badge.code }} - {{ badge.name }}
+                    [value]="badge?.code">
+                   <div>{{ badge.code }} - {{ badge.name }}</div>
                   </mat-option>
                 </mat-select>
               </label>

@@ -102,8 +102,8 @@ export class CdsDeclarationComponent implements OnInit {
 
     this.selectedBadge = this.badges.find(b => b.code === event.source.value);
 
-    if (this.selectedBadge.code === 'undefined') {
-      console.log('No badge found matching code: ' + event.source.value);
+    if (this.selectedBadge == null) {
+      console.log('No badge found matching code ' + event.source.value);
       return;
     }
 
