@@ -30,10 +30,10 @@
             <div class="flex-item-declarationType">
               <label class="field-label labelAlignment">
                 Decln Type [01]:
-                <mat-select class="declaration-type-combobox">
-                  <mat-option
+                <mat-select class="declaration-type-combobox" [value]="selectedDeclarationType?.value">
+                  <mat-option (onSelectionChange)="onSelectedDeclarationTypeChange($event)"
                     *ngFor="let declarationType of declarationTypes"
-                    [value]="declarationType.value"
+                    [value]="declarationType?.value"
                   >
                     {{ declarationType.value }}
                   </mat-option>

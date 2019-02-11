@@ -1,5 +1,6 @@
 import { Action } from '@ngrx/store';
 import { Badge } from '../models/badges';
+import { Declarationtype } from '../models/declarationtypes';
 
 export enum DeclarationTypesActionTypes {
   ToggleDeclaraionTypes = '[Declaration Types] Toggle Declaration Types',
@@ -9,6 +10,7 @@ export enum DeclarationTypesActionTypes {
   LoadBadgeSuccess = '[Declaration Types] Load Badge Success',
   LoadBagdeFail = '[Declaration Types] Load Badge Fail',
   SetTraderReference = '[Declaration Types] Set Trader Reference',
+  SetDeclarationType = '[Declaration Types] Set Declaration Type',
 }
 
 //#region Action Creators
@@ -36,10 +38,18 @@ export class SetTraderReference implements Action {
   constructor(public payload: string) {}
 }
 
+export class SetDeclarationType implements Action {
+  readonly type = DeclarationTypesActionTypes.SetDeclarationType;
+
+  constructor(public payload: Declarationtype) {}
+}
+
+
 //#endregion
 
 export type DeclarationTypeActions =
   | ToggleDeclarationTypes
   | SetCurrentBadge
   | ClearCurrentBadge
-  | SetTraderReference;
+  | SetTraderReference
+  | SetDeclarationType;

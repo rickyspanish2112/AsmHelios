@@ -17,7 +17,9 @@ import * as fromDeclarationTypeActions from '../../state/declaration-type.action
 export class CdsDeclarationComponent implements OnInit {
  //#region Properties
 
- declarationTypes: Declarationtype[] = [];
+  declarationTypes: Declarationtype[] = [];
+  selectedDeclarationType: Declarationtype;
+
   badges: Badge[] = [];
   selectedBadge: Badge;
 
@@ -70,6 +72,12 @@ export class CdsDeclarationComponent implements OnInit {
         traderReference => (this.traderReferenceValue = traderReference)
       );
 
+      this.store
+      .pipe(select(fromDeclaraionType.getCurrentDeclarationType))
+      .subscribe(selectedType =>
+        this.doSetSelectedDeclarationTypeChanged(selectedType)
+      );
+
     this.declarationService.getAllDeclarationTypes().subscribe(
       data => {
         this.declarationTypes = data;
@@ -115,6 +123,20 @@ export class CdsDeclarationComponent implements OnInit {
     );
   }
 
+  onSelectedDeclarationTypeChange(event) {
+    if (!event.isUserInput) {
+      return null;
+    }
+    this.selectedDeclarationType = this.declarationTypes.find(b => b.value === event.source.value);
+
+    console.log('About to dispatch Set Trader Reference: ' + this.selectedDeclarationType.value);
+
+    this.store.dispatch(
+      new fromDeclarationTypeActions.SetDeclarationType(this.selectedDeclarationType)
+    );
+
+  }
+
   onBlurTraderReferenceChange(traderReference: string) {
     console.log('About to dispatch Set Trader Reference: ' + traderReference);
 
@@ -133,5 +155,17 @@ export class CdsDeclarationComponent implements OnInit {
     );
     this.selectedBadge = selectedBadge;
   }
+
+  doSetSelectedDeclarationTypeChanged(selectedType: Declarationtype) {
+    if (selectedType === null) {
+      return null;
+    }
+    console.log(
+      'About to set selected declaration type view. Selected  type: ' +
+        [selectedType.value]
+    );
+    this.selectedDeclarationType = selectedType;
+  }
+
   //#endregion
 }

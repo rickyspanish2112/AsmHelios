@@ -11,7 +11,7 @@ export interface State extends fromRoot.State {
 export interface DeclarationTypeState {
   showDeclarationTypes: boolean;
   currentBadge: Badge;
-  badges: Declarationtype[];
+  badges: Badge[];
   currentDeclarationType: Declarationtype;
   declarationTypes: Declarationtype[];
   traderTreference: string;
@@ -86,6 +86,12 @@ export function reducer(state = initialState,  action: DeclarationTypeActions): 
       return{
         ...state,
         traderTreference: action.payload
+      };
+
+      case DeclarationTypesActionTypes.SetDeclarationType:
+      return{
+        ...state,
+        currentDeclarationType: action.payload
       };
 
       default:
