@@ -129,12 +129,9 @@ export class CdsDeclarationComponent implements OnInit {
     }
     this.selectedDeclarationType = this.declarationTypes.find(b => b.value === event.source.value);
 
+    this.store.dispatch(new fromDeclarationTypeActions.SetCurrentDeclarationType(this.selectedDeclarationType));
+
     console.log('About to dispatch Set Trader Reference: ' + this.selectedDeclarationType.value);
-
-    this.store.dispatch(
-      new fromDeclarationTypeActions.SetDeclarationType(this.selectedDeclarationType)
-    );
-
   }
 
   onBlurTraderReferenceChange(traderReference: string) {

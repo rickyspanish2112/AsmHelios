@@ -70,28 +70,22 @@ export function reducer(state = initialState,  action: DeclarationTypeActions): 
         showDeclarationTypes: action.payload
       };
 
+      case DeclarationTypesActionTypes.SetCurrentDeclarationType:
+      return {
+        ...state,
+        currentDeclarationType: {...action.payload}
+      };
+
       case DeclarationTypesActionTypes.SetCurrentBadge:
       return {
         ...state,
         currentBadge: {...action.payload}
       };
 
-      case DeclarationTypesActionTypes.ClearCurrentBadge:
+      case DeclarationTypesActionTypes.SetTraderReference:
       return {
         ...state,
-        currentBadge: null
-      };
-
-      case DeclarationTypesActionTypes.SetTraderReference:
-      return{
-        ...state,
         traderTreference: action.payload
-      };
-
-      case DeclarationTypesActionTypes.SetDeclarationType:
-      return{
-        ...state,
-        currentDeclarationType: action.payload
       };
 
       default:

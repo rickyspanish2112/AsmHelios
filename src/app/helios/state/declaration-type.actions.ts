@@ -5,12 +5,8 @@ import { Declarationtype } from '../models/declarationtypes';
 export enum DeclarationTypesActionTypes {
   ToggleDeclaraionTypes = '[Declaration Types] Toggle Declaration Types',
   SetCurrentBadge = '[Declaration Types] Set Current Badge',
-  ClearCurrentBadge = '[Declaration Types] Clear Current Declaration Badge',
-  LoadBadge = '[Declaration Types] Load Badge',
-  LoadBadgeSuccess = '[Declaration Types] Load Badge Success',
-  LoadBagdeFail = '[Declaration Types] Load Badge Fail',
   SetTraderReference = '[Declaration Types] Set Trader Reference',
-  SetDeclarationType = '[Declaration Types] Set Declaration Type',
+  SetCurrentDeclarationType = '[Declaration Types] Set Declaration Type',
 }
 
 //#region Action Creators
@@ -26,20 +22,14 @@ export class SetCurrentBadge implements Action {
   constructor(public payload: Badge) {}
 }
 
-export class ClearCurrentBadge implements Action {
-  readonly type = DeclarationTypesActionTypes.ClearCurrentBadge;
-
-  constructor() {}
-}
-
 export class SetTraderReference implements Action {
   readonly type = DeclarationTypesActionTypes.SetTraderReference;
 
   constructor(public payload: string) {}
 }
 
-export class SetDeclarationType implements Action {
-  readonly type = DeclarationTypesActionTypes.SetDeclarationType;
+export class SetCurrentDeclarationType implements Action {
+  readonly type = DeclarationTypesActionTypes.SetCurrentDeclarationType;
 
   constructor(public payload: Declarationtype) {}
 }
@@ -50,6 +40,5 @@ export class SetDeclarationType implements Action {
 export type DeclarationTypeActions =
   | ToggleDeclarationTypes
   | SetCurrentBadge
-  | ClearCurrentBadge
   | SetTraderReference
-  | SetDeclarationType;
+  | SetCurrentDeclarationType;
