@@ -15,7 +15,7 @@ import * as fromDeclarationTypeActions from '../../state/declaration-type.action
   styleUrls: ['./cds-declaration.component.scss']
 })
 export class CdsDeclarationComponent implements OnInit {
- //#region Properties
+  //#region Properties
 
   declarationTypes: Declarationtype[] = [];
   selectedDeclarationType: Declarationtype;
@@ -72,7 +72,7 @@ export class CdsDeclarationComponent implements OnInit {
         traderReference => (this.traderReferenceValue = traderReference)
       );
 
-      this.store
+    this.store
       .pipe(select(fromDeclaraionType.getCurrentDeclarationType))
       .subscribe(selectedType =>
         this.doSetSelectedDeclarationTypeChanged(selectedType)
@@ -127,11 +127,19 @@ export class CdsDeclarationComponent implements OnInit {
     if (!event.isUserInput) {
       return null;
     }
-    this.selectedDeclarationType = this.declarationTypes.find(b => b.value === event.source.value);
+    this.selectedDeclarationType = this.declarationTypes.find(
+      b => b.value === event.source.value
+    );
 
-    this.store.dispatch(new fromDeclarationTypeActions.SetCurrentDeclarationType(this.selectedDeclarationType));
-
-    console.log('About to dispatch Set Trader Reference: ' + this.selectedDeclarationType.value);
+    console.log(
+      'About to dispatch Set Trader Reference: ' +
+        this.selectedDeclarationType.value
+    );
+    this.store.dispatch(
+      new fromDeclarationTypeActions.SetCurrentDeclarationType(
+        this.selectedDeclarationType
+      )
+    );
   }
 
   onBlurTraderReferenceChange(traderReference: string) {
